@@ -1,0 +1,122 @@
+\ProvidesPackage{Vorlage_Anschreiben}
+
+\LetterOptionNeedsPapersize{DIN}{a4}
+
+% ============ Packages ============
+\RequirePackage{GemeinsameDaten}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[ngerman]{babel}% deutsch
+\RequirePackage{graphicx,
+	verbatim,% Kommentare
+	marvosym,% Tel. Symbole
+	calc}
+\RequirePackage[T1]{fontenc}
+%\usepackage{pxfonts}
+%\usepackage{txfonts}
+\RequirePackage{lmodern}
+\RequirePackage{xcolor}
+\RequirePackage{picture,eso-pic,etoolbox,tikz}
+	
+% ============ Koma Optionen ============
+%\KOMAoption{Option }{Werteliste }
+\KOMAoptions{
+	 BCOR=0mm			% Keine Bindekorrektur
+	,draft=on			% Entwurfsstadium
+	,fontsize=12pt		% Schriftgr. 12 std. bis 10 ok.
+	,foldmarks=false	% Keine Faltmarken
+	,enlargefirstpage=true	% optionale vergroesserung des Txt Bereichs d. 1 Seite
+	,firstfoot=true		% Briefbogenfuß gesetzt? Mit enlargefirstpage verbandelt.
+	,firsthead=true		% Briefkopf an/aus. Def:an
+	,fromalign=right	% Absender rechts statt links. S.171
+	,fromrule=aftername	% Linie unter Absendername . S.171
+	%,locfield=wide		% Breite des Feldes für die Absenderergänzung narrow | wide
+	%% S.182
+	,addrfield=true			% Anschrift mit Rücksendeadresse
+	,backaddress=true		% Rücksendeadresse
+	,fromphone=true
+	,fromfax=true
+	,fromemail=true
+	,fromurl=false
+	,refline=narrow
+	%,headsepline=on%%         Line below the page number
+	,parskip=full%%           Space between paragraphs (groesser) Abstand der Absätze (
+	%(half = halbe Zeile, full = ganze Zeile, false = keine leerzeile)
+	%,fromrule=off%%           Line below the sender's area (aftername, afteraddress)
+}
+
+% ============ Daten Abgleich ============
+\setkomavar{fromaddress}{\strasse\\\PLZ \ \wohnort}
+\newkomavar[Mobil]{mobilphone}
+\setkomavar{mobilphone}[]{\mobilNr}
+\setkomavar{fromphone}[]{\festnetzNr}
+\setkomavar{fromfax}[]{\faxNr}
+\setkomavar{fromemail}[]{\email}
+\setkomavar{place}[BezeichnungPlace]{\wohnort}
+\setkomavar{fromname}{\vorname \ \nachname} % Opt. zwischen Args {}[Bez]{
+
+% ============ Style ============
+\renewcommand*{\familydefault}{\sfdefault}% nutze serifenlose Schrift
+\selectfont
+
+\setkomavar{placeseparator}[]{, den }
+\setkomavar{enclseparator}[Anlagen]{} %Umbenennung, kein :
+
+% ------------ Kopf ------------
+\setkomavar{firsthead}{%
+      \parbox[b]{\textwidth}{\raggedleft
+        {\usekomafont{fromname}\strut\ignorespaces
+        \huge{%
+		\color{firstnamecolor}\vorname \ % Farbe Vorname übernehmen
+		\color{familynamecolor}\nachname % Farbe Nachname übernehmen%
+		}}%
+        { \\[-.4\baselineskip]%
+			\usekomafont{fromrule}{{\parbox{\textwidth}{\color{rulecolor}\rule{\textwidth}{1.3pt}}}}
+			\usekomafont{fromaddress}\strut\ignorespaces
+			\usekomavar{fromaddress}%
+			\\\Mobilefone\usekomavar*{mobilphone}\usekomavar{mobilphone}%
+			\\\Telefon\usekomavar*{fromphone}\usekomavar{fromphone}%
+			\\\Faxmachine\usekomavar*{fromfax}\usekomavar{fromfax}%
+			\\\Letter\usekomavar*{fromemail}\usekomavar{fromemail}%
+          \\}%
+      }%
+}	
+% ------------ Fuss ------------
+\setkomavar{firstfoot}{%
+	\vbox to 0pt{\vspace*{-4mm}\color{rulecolor}\rule{\textwidth}{0.7pt}}
+}
+% ------------ Unterschrift / feintunen ------------
+%\renewcommand{\unterschrift}{\includegraphics[scale=0.15]{\unterschriftBild}}
+
+
+
+%\@setplength{sigbeforevskip}{-15pt}	% {0\baselineskip} 	% Abstand Grussfloskel Unterschrift
+%\setkomavar{signature}[]{ % siehe auch format.lco
+%	\unterschrift%\\					% use \raisebox?
+%	%\vspace{-0.4cm}\scriptsize
+%	%\usekomavar{fromname}
+%} 	% S.201
+
+% ============ Abstaende KOMA ============
+\@setplength{firstheadvpos}{19mm} %Anfang header
+\@setplength{toaddrvpos}{32mm}	%Absenderzeile im Briefsichtfenster richten fuer DINmtext
+
+% ============ Notizen ============
+% Variablen  scrlttr2.				 		| Kap. 4.1 	S.145
+%	\setkomafont{Element }{Befehle }	| Kap. 3		S. 56
+% Fonts von Briefen							| Kap 4.9	S.164
+% \KOMAoption{subject}{left} 			|			 	S.191
+% \setkomavar{title}[]{Bewerbung }	| 				S.190
+
+% ============ TEMP ============
+\definecolor{firstnamecolor}{rgb}{0.65,0.65,0.65}
+\definecolor{familynamecolor}{rgb}{0.45,0.45,0.45}
+\definecolor{footersymbolcolor}{rgb}{0.30,0.65,0.15}
+\definecolor{addresscolor}{rgb}{0.35,0.35,0.35} %grau
+
+\definecolor{firstnamecolor}{rgb}{0.65,0.65,0.65}
+\definecolor{familynamecolor}{rgb}{0.45,0.45,0.45}
+\definecolor{rulecolor}{rgb}{0.20,0.40,0.85}
+
+% ============ Fin ============
+\recalctypearea	% Satzspiegel und Rändern neu berechnen
+

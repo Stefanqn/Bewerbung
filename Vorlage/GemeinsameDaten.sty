@@ -1,0 +1,30 @@
+\ProvidesPackage{GemeinsameDaten}
+
+
+%% ============= Priv Data =============
+\newcommand* \vorname {}  
+\newcommand* \nachname {}  
+\newcommand* \strasse {} 
+\newcommand* \PLZ {}  
+\newcommand* \wohnort {} 
+\newcommand* \mobilNr {}
+\newcommand* \festnetzNr {}
+\newcommand* \faxNr {} 
+\newcommand* \email {}    
+\newcommand \sig{} 
+
+\def \vorname #1{\renewcommand* \vorname {#1}}
+\def \nachname #1{\renewcommand* \nachname {#1}}
+\def \strasse #1{\renewcommand* \strasse {#1}}
+\def \PLZ #1{\renewcommand* \PLZ {#1}}
+\def \wohnort #1{\renewcommand* \wohnort {#1}}
+\def \mobilNr #1{\renewcommand* \mobilNr {#1}}
+\def \festnetzNr #1{\renewcommand* \festnetzNr {#1}}
+\def \faxNr #1{\renewcommand* \faxNr {#1}}
+\def \email #1{\renewcommand* \email {#1}}
+\def \unterschrift[#1][#2]#3 {\renewcommand \sig {\includegraphics[scale=#1]{#3} {#2 \scriptsize \vorname \ \nachname}}}
+
+%\newcommand* xxxxxxx {}  
+%\def xxxxxxx #1{\renewcommand* xxxxxxx {#1}}
+
+

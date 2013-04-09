@@ -1,0 +1,155 @@
+%	 DIN 5008 nach dem Stand vom April 2011.
+%    A für Geschaeftsbriefe mit kleinem Briefkopf
+%    B für Geschaeftsbriefe mit erweitertem Briefkopf
+
+% Links:
+% http://www.luk-korbmacher.de/Schule/Text/din676.htm 	<-- ref
+% http://www.din5008.de/p0400140.htm					<-- genauer?
+% http://www.helmol.de/din/03_briefb.htm				<-- DIN 5008-B-A4-IB
+% http://www.druckeselbst.de/briefbogen/din676.php
+% DIN 676 ???
+
+\usepackage{picture,eso-pic,etoolbox,tikz} %xstring
+\AddToShipoutPicture{%
+	\setlength\fboxsep{0pt}	%framebox border 0pt
+	%
+	% === Switch-Defs  ===
+	\newtoggle{printN}%
+	\newtoggle{printA}%
+	\newtoggle{printB}%
+	\newtoggle{printX}%
+	\newtoggle{printT}%
+	\newtoggle{letter}
+
+	% === Switches  ===	%	toggletrue	togglefalse | <<< Hier editieren >>>
+	\toggletrue{printN} % zeigt Gemeinsamkeiten 
+	\toggletrue{printA}	% zeige DIN 5008 A ?
+	\togglefalse{printB}% zeige DIN 5008 B ?
+	\toggletrue{printX}	% zeigt extras
+	\togglefalse{printT}% Spielwiese
+	\togglefalse{letter}
+	
+	% === Color-Defs  ===
+	\newcommand \colorN {gray}		% normal / gemeinsam
+	\newcommand \colorA {green}		% A
+	\newcommand \colorB {cyan}		% B
+	\newcommand \colorX {orange}	% extras
+	\newcommand \colorT {red}			% Tests, obsolet
+	
+	% === Guards & Color  ===
+	\newcommand \printN [1]{\ifhmode\unskip\fi\iftoggle{printN}{{\color{\colorN}{#1}}}{}\ignorespaces}%
+	\newcommand \printA [1]{\ifhmode\unskip\fi\iftoggle{printA}{{\color{\colorA}{#1}}}{}\ignorespaces}%
+	\newcommand \printB [1]{\ifhmode\unskip\fi\iftoggle{printB}{{\color{\colorB}{#1}}}{}\ignorespaces}%
+	\newcommand \printX [1]{\ifhmode\unskip\fi\iftoggle{printX}{{\color{\colorX}{#1}}}{}\ignorespaces}%
+	\newcommand \printT [1]{\ifhmode\unskip\fi\iftoggle{printT}{{\color{\colorT}{#1}}}{}\ignorespaces}%
+	
+	% === Box-Defs ===
+	\def \qBox(#1,#2)(#3,#4)[#5]#6{\put(#1,#2){\color{gray}\colorbox{#5!10}{\framebox(#3,#4){\parbox[t][#4][t]{#3}{#6}}}}} % 2 following rows with color break X coord.
+  \def \boxN(#1,#2)(#3,#4)#5{\iftoggle{printN}{\qBox(#1,#2)(#3,#4)[\colorN]{#5}}{}}%
+	\def \boxA(#1,#2)(#3,#4)#5{\iftoggle{printA}{\qBox(#1,#2)(#3,#4)[\colorA]{#5}}{}}%
+	\def \boxB(#1,#2)(#3,#4)#5{\iftoggle{printB}{\qBox(#1,#2)(#3,#4)[\colorB]{#5}}{}}%
+	\def \boxX(#1,#2)(#3,#4)#5{\iftoggle{printX}{\qBox(#1,#2)(#3,#4)[\colorX]{#5}}{}}%
+	\def \boxT(#1,#2)(#3,#4)#5{\iftoggle{printT}{\qBox(#1,#2)(#3,#4)[\colorT]{#5}}{}}%
+	
+	% === Marker-Defs ===
+	\def \markerPriv(#1,#2){\put(#1,#2){\line(0,-1){2mm}}\put(#1,#2){\line(1,0){2mm}}}%
+	\def \markN(#1,#2){\ifhmode\unskip\fi\iftoggle{printN}{\color{\colorN}\markerPriv(#1,#2)}{}\ignorespaces} %norm
+	\def \markA(#1,#2){\ifhmode\unskip\fi\iftoggle{printA}{\color{\colorA}\markerPriv(#1,#2)}{}\ignorespaces} %norm
+	\def \markB(#1,#2){\ifhmode\unskip\fi\iftoggle{printB}{\color{\colorB}\markerPriv(#1,#2)}{}\ignorespaces} %norm
+	\def \markC(#1,#2){\ifhmode\unskip\fi\iftoggle{printX}{\color{\colorX}\markerPriv(#1,#2)}{}\ignorespaces} %norm
+	\def \markD(#1,#2){\ifhmode\unskip\fi\iftoggle{printT}{\color{\colorT}\markerPriv(#1,#2)}{}\ignorespaces} %norm
+	
+	\iftoggle{letter}{%
+		\AtTextCenter{%		Farb Legende
+			\makebox(0,0)[c]{\rotatebox{45}{\color{gray}{%
+				\Huge \printN{DIN 5008}}%
+				\printA{ A}%
+				\printB{ B}%
+				\printX{ X}%
+				\printT{ T}%
+			}}%
+		}%
+	}{}%
+	
+	
+	\newcommand	\linksKopf {20mm}	% normaler Abstand links Kopf
+	\newcommand \linksStd {25mm}	% normaler Abstand links
+  \AtPageUpperLeft{%
+		% == Fluchtlinien ==
+		%\multiput(\linksKopf,0)(0,-.01\paperheight){100}{\line(0,-1){.005\paperheight}}
+		\printN{\multiput(\linksKopf,0)(0,-.01\paperheight){100}{\line(0,-1){.005\paperheight}}}	% Anschriftsfeld: 20 mm vom linken Blattrand	
+		\printN{\multiput(\linksStd,0)(0,-.01\paperheight){100}{\line(0,-1){.005\paperheight}}}		% Fluchtlinie: 25 mm vom linken Blattrand
+		\put(\paperwidth,0){% von rechts nach links negative vektoren verwenden
+			\printN{\multiput(-10mm,0)(0,-.01\paperheight){100}{\line(0,-1){.005\paperheight}}}%	% Zeilenende: 10 mm vom rechten Blattrand
+			\printX{\multiput(-\linksStd,0)(0,-.01\paperheight){100}{\line(0,-1){.005\paperheight}}}% sym. Bsp
+			\printX{\multiput(-20mm,0)(0,-.01\paperheight){100}{\line(0,-1){.005\paperheight}}}% sym. Bsp
+		}%
+
+		% == Briefkopf == [A] 27 mm bzw. [B] 45 mm vom oberen Blattrand
+		\printX{\multiput(0,-16.9mm)(.01\paperwidth,0){100}{\line(1,0){.005\paperwidth}}}%
+		\printA{\multiput(0,-27mm)(.01\paperwidth,0){100}{\line(1,0){.005\paperwidth}}}%
+		\printB{\multiput(0,-45mm)(.01\paperwidth,0){100}{\line(1,0){.005\paperwidth}}}%	
+
+		% == Anschrift ==
+		\newcommand \anschrift {%
+		 	Anschrift-1. Zeilen dritte Zeile ZV. o L\\
+			2. Zeile	zweite Zeile Zusatzvermerke oder leer\\
+			3. Zeile	erste Zeile Zusatzvermerke oder leer\\
+			4. Zeile 	Name bzw. Firma\\
+			5. Namenszusatz oder Str/Hausnummer\\
+			6. Str/Hausnummer(Postfach) oder PLZ/Ort\\
+			7. PLZ/Ort oder Länderangabe bzw. leer\\
+			8. Länderangabe bzw. leer\\
+		%	9. Zeile	leer
+		}
+		\iftoggle{letter}{%
+			\boxA(\linksKopf,-33.9mm-40mm-5mm)(85mm,40mm){\anschrift}
+			\boxA(\linksKopf,-33.9mm-5mm)(85mm,5mm){AnschriftAbsender}
+			%\boxB(\linksKopf,-50.9mm-45mm)(85mm,45mm){}
+			\boxB(\linksKopf,-50.9mm-40mm-5mm)(85mm,40mm){\anschrift}
+			\boxB(\linksKopf,-50.9mm-5mm)(85mm,5mm){AnschriftAbsender}
+			%8,46 mm Abstand zwischen dem Anschriftenfeld bzw. dem Informationsblock und den Leitwoertern der Bezugszeichenzeile (2 Leerzeilen)
+		
+
+			% ==Informationsblock==
+			\boxA(\paperwidth-10mm-75mm,-33.9mm-40mm)(75mm,40mm){Informationsblock} % Informationsblock mindestens 40 mm hoch (variabel), 75 mm breit
+			\boxB(\paperwidth-10mm-75mm,-50.8mm-40mm)(75mm,40mm){Informationsblock} % Informationsblock mindestens 40 mm hoch (variabel), 75 mm breit
+			%\printA{\multiput(125mm,0)(0,-.01\paperheight){25}{\line(0,-1){.005\paperheight}}}		% Beginn Infoblock
+		
+		
+			% ---------------- Marken (nach/ueber Boxen) ----------------		
+			% == Kommunikationszeile / Absender, Datum etc. ==
+			% -- Leitwoerter der Kommunikationszeile --
+			\markA(\linksKopf,-63.5mm)
+			\markB(\linksKopf,-80.4mm)
+			% -- Text der Kommunikationszeile --
+			\markA(\linksKopf,-67.7mm)
+			\markB(\linksKopf,-84.7mm)
+			
+			% == Bezugszeichenzeile ==
+			\markA(\linksStd,-80.4mm)	% Leitwoerter der Bezugszeichenzeile
+			\markA(175mm,-80.4mm)	% Datum
+			% Datum hier als Teil der Bezugszeichenzeile - sonst eine Zeile unter Empfaengerangaben als Teil des Infoblocks linksbuendig
+			\printA{\put(175mm,-80.4mm-\baselineskip){\parbox[b][\baselineskip][t]{75mm}{Datum}}} 
+			\markB(\linksStd,-97.4mm)	% Leitwoerter der Bezugszeichenzeile
+			\markB(175mm,-97.4mm)	% Datum
+			\printB{\put(175mm,-97.4mm-\baselineskip){\parbox[b][\baselineskip][t]{75mm}{Datum}}}
+			% -- Text der Bezugszeichenzeile --
+			\markA(\linksStd,-84.7mm)
+			\markB(\linksStd,-101.6mm)
+			
+			% == Betreff == (bei einer Textzeile in der Bezugszeichenzeile)
+			\markA(\linksStd,-97.4mm)
+			\printA{\put(\linksStd,-97.4mm-5mm){\parbox[b][5mm][t]{30mm}{Betreff}}}
+			\markB(\linksStd,-114.3mm)
+			\printB{\put(\linksStd,-114.3mm-5mm){\parbox[b][5mm][t]{30mm}{Betreff}}}
+			% Dem Betreffvermerk folgen zwei Leerzeilen.
+			% Der Anrede folgt eine Leerzeile.	
+		}{}
+		\printX{\multiput(0,-267mm)(.01\paperwidth,0){100}{\line(1,0){.005\paperwidth}}}% vorgeschlagene letzte Zeile
+	}%DINmtext
+  
+	\AtPageLowerLeft{%
+		\printN{\multiput(0,16.9mm)(.01\paperwidth,0){100}{\line(1,0){.005\paperwidth}}}% max letzte Zeile
+	}
+}
