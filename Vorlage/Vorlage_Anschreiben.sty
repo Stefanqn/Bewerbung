@@ -4,7 +4,7 @@
 
 % ============ Packages ============
 \RequirePackage{GemeinsameDaten}
-\RequirePackage[utf8]{inputenc}
+%\RequirePackage[utf8]{inputenc}
 \RequirePackage[ngerman]{babel}% deutsch
 \RequirePackage{graphicx,
 	verbatim,% Kommentare
@@ -50,7 +50,7 @@
 \setkomavar{mobilphone}[]{\mobilNr}
 \setkomavar{fromphone}[]{\festnetzNr}
 \setkomavar{fromfax}[]{\faxNr}
-\setkomavar{fromemail}[]{\email}
+\setkomavar{fromemail}[]{\myEmail}
 \setkomavar{place}[BezeichnungPlace]{\wohnort}
 \setkomavar{fromname}{\vorname \ \nachname} % Opt. zwischen Args {}[Bez]{
 
@@ -73,10 +73,10 @@
 			\usekomafont{fromrule}{{\parbox{\textwidth}{\color{rulecolor}\rule{\textwidth}{1.3pt}}}}
 			\usekomafont{fromaddress}\strut\ignorespaces
 			\usekomavar{fromaddress}%
-			\\\Mobilefone\usekomavar*{mobilphone}\usekomavar{mobilphone}%
-			\\\Telefon\usekomavar*{fromphone}\usekomavar{fromphone}%
-			\\\Faxmachine\usekomavar*{fromfax}\usekomavar{fromfax}%
-			\\\Letter\usekomavar*{fromemail}\usekomavar{fromemail}%
+			\\\Mobilefone \usekomavar*{mobilphone} \usekomavar{mobilphone}%
+			\\\Telefon \usekomavar*{fromphone} \usekomavar{fromphone}%
+			\\\Faxmachine \usekomavar*{fromfax} \usekomavar{fromfax}%
+			\\\Letter \usekomavar*{fromemail} \usekomavar{fromemail}%
           \\}%
       }%
 }	
