@@ -1,5 +1,7 @@
 \ProvidesPackage{GemeinsameDaten}
 
+\RequirePackage[dvipsnames]{xcolor}
+\RequirePackage{etoolbox}
 
 %% ============= Priv Data =============
 \newcommand* \vorname {}  
@@ -12,7 +14,15 @@
 \newcommand* \faxNr {} 
 \newcommand* \myEmail {}    
 \newcommand \sig{} 
+\newcommand*  \foto {}
+\newcommand*  \fotoHoehe {4cm}
+\newcommand*  \fotoRahmen {1pt}
+\newcommand* \name {\vorname \ \nachname}
 
+
+
+
+%% ------------- Priv Data Helpers -------------
 \def \vorname #1{\renewcommand* \vorname {#1}}
 \def \nachname #1{\renewcommand* \nachname {#1}}
 \def \strasse #1{\renewcommand* \strasse {#1}}
@@ -23,8 +33,43 @@
 \def \faxNr #1{\renewcommand* \faxNr {#1}}
 \def \myEmail #1{\renewcommand* \myEmail {#1}}
 \def \unterschrift[#1][#2]#3 {\renewcommand \sig {\includegraphics[scale=#1]{#3} {#2 \scriptsize \vorname \ \nachname}}}
+\def \foto[#1][#2]#3 {\renewcommand* \foto {#3} \renewcommand* \fotoHoehe {#1} \renewcommand* \fotoRahmen {#2}}
 
 %\newcommand* xxxxxxx {}  
 %\def xxxxxxx #1{\renewcommand* xxxxxxx {#1}}
 
+
+%% ============= Farben =============
+% loads a color scheme
+\newcommand*{\farbe}[1]{
+  \RequirePackage{moderncvcolor#1}} % imports {color0}{color1}{color2}
+\AtEndPreamble{
+	\definecolor{firstnamecolor}{rgb}{0.65,0.65,0.65}
+	\definecolor{familynamecolor}{rgb}{0.45,0.45,0.45}
+	\definecolor{footersymbolcolor}{rgb}{0.30,0.65,0.15}
+	\definecolor{addresscolor}{rgb}{0.35,0.35,0.35} %grau
+	\definecolor{rulecolor}{rgb}{0.20,0.40,0.85}
+	%\colorlet{firstnamecolor}{color1!50}
+	%\colorlet{familynamecolor}{color1!100}
+	%\colorlet{rulecolor}{blue}
+}
+
+%% ============= Abstaende  =============
+\newcommand* \fussAbstand {22.25mm}
+\newcommand \fussLinie[2]{\vbox to 0pt{\color{rulecolor}#1\rule{\textwidth+#2}{0.7pt}}}
+
+%% ============= Funktionen =============
+\newcommand \kopfName {\strut\ignorespaces \huge{%
+		\color{firstnamecolor}\vorname\ % Farbe Vorname übernehmen
+		\color{familynamecolor}\nachname% Farbe Nachname übernehmen%
+}}
+
+\newcommand \kopfZeile[1]{%
+	\parbox[b]{\textwidth}{\raggedleft
+		{\kopfName}%
+		{ \\[-.4\baselineskip]%
+	{{\parbox{\textwidth}{\color{rulecolor}\rule{\textwidth}{1.5pt}}}}
+	\strut\ignorespaces%
+	#1}
+}}
 

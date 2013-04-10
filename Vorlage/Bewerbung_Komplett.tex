@@ -1,0 +1,58 @@
+\documentclass[12pt,a4paper]{book}
+
+\input{../Bsp-Latex/mm.tex}
+\usepackage{Vorlage_Bewerbung}
+% !!! Requires shell-escape !!!
+% http://tex.stackexchange.com/questions/37489/how-can-i-enable-write-18-on-a-miktex-installation
+\RequirePackage{filecontents}
+
+% Filename without blanks
+\newcommand \buildDir {build/}
+
+\newcommand* \zeugnis {../../Bsp-Bin/ZeugnisBsp.pdf}
+
+
+%Anschreiben
+\begin{filecontents}{anschreibenGen.tex}
+\documentclass[DINmtext]{scrlttr2}% 		DIN oder DINmtext
+\usepackage[utf8x]{inputenc}
+\usepackage{Vorlage_Anschreiben}
+%\input{../Priv-Latex/sk.tex}
+\input{../Bsp-Latex/mm.tex}
+%\input{../DIN5008/din5008frame.tex}
+\begin{document}
+\input{../Bsp-Latex/Inhalt-Anschreiben.tex}
+\end{document}
+\end{filecontents}
+\immediate\write18{pdflatex  -output-directory=\buildDir\ anschreibenGen.tex}
+
+%CV
+\begin{filecontents}{cvGen.tex}
+\PassOptionsToPackage{dvipsnames}{xcolor}
+\documentclass[12pt,a4paper,sans]{moderncv} 
+\usepackage{Vorlage_Lebenslauf}
+\input{../Bsp-Latex/mm.tex}              
+\moderncvcolor{blue}
+%\input{../DIN5008/din5008frame.tex}
+\begin{document}
+\input{../Bsp-Latex/Inhalt-CV.tex}
+\end{document}
+\end{filecontents}
+\immediate\write18{pdflatex  -output-directory=\buildDir\ cvGen.tex}
+
+\begin{document}
+\IfFileExists{\buildDir anschreibenGen.pdf}{
+	\includepdf[pages=-, addtotoc={1, pageRef, 0,Anschreiben,anschreiben}]{anschreibenGen}
+}{\Huge kein Anschreiben}
+\IfFileExists{\buildDir cvGen.pdf}{
+	\includepdf[pages=-, addtotoc={1, pageRef, 0,Lebenslauf,lebenslauf}]{cvGen}
+}{\Huge kein CV}
+
+% Weitere Anlagen
+\bookmark[page=\thepage,level=0]{Zeugnisse} %extra manually set
+\bookmark[page=\thepage,level=1]{Zeugnis -A} %extra manually set
+\includepdf{\zeugnis}
+\bookmark[page=\thepage,level=1]{Zeugnis -B} %extra manually set
+\includepdf{\zeugnis}
+%\includepdf[pages=-,link,linkname=testRef]{./build/TestRefs.pdf}
+\end{document}

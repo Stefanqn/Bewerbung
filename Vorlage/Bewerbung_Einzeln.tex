@@ -1,0 +1,34 @@
+\documentclass[12pt,a4paper]{book}
+
+\usepackage[utf8]{inputenc}     
+
+\input{../Bsp-Latex/mm.tex}
+\usepackage{Vorlage_Bewerbung}
+
+% Filename without blanks
+\newcommand* \anschreiben {./build/anschreiben.pdf}
+\newcommand* \lebenslauf {./build/cv.pdf}
+\newcommand* \zeugnis {../../Bsp-Bin/ZeugnisBsp.pdf}
+
+
+
+
+\begin{document}
+%\includepdf{anschreibenI}
+%\IfFileExists{./build/anschreibenI.pdf}{\includepdf{./build/anschreibenI.pdf}}{}
+%addtotoc={pagenumber, section, level, heading ,label}
+\includepdf[pages=-, addtotoc={1, pageRef, 0,Anschreiben,anschreiben}]{\anschreiben}
+
+% Lebenslauf
+\includepdf[pages=-,link,linkname=lebenslauf,%
+addtotoc={1, pageRef, 0,Lebenslauf,lebenslauf}
+]{\lebenslauf}
+
+% Weitere Anlagen
+\bookmark[page=\thepage,level=0]{Zeugnisse} %extra manually set
+\bookmark[page=\thepage,level=1]{Zeugnis -A} %extra manually set
+\includepdf{\zeugnis}
+\bookmark[page=\thepage,level=1]{Zeugnis -B} %extra manually set
+\includepdf{\zeugnis}
+%\includepdf[pages=-,link,linkname=testRef]{./build/TestRefs.pdf}
+\end{document}

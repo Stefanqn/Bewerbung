@@ -16,6 +16,7 @@
 \RequirePackage{lmodern}
 \RequirePackage{xcolor}
 \RequirePackage{picture,eso-pic,etoolbox,tikz}
+
 	
 % ============ Koma Optionen ============
 %\KOMAoption{Option }{Werteliste }
@@ -25,21 +26,21 @@
 	,fontsize=12pt		% Schriftgr. 12 std. bis 10 ok.
 	,foldmarks=false	% Keine Faltmarken
 	,enlargefirstpage=true	% optionale vergroesserung des Txt Bereichs d. 1 Seite
-	,firstfoot=true		% Briefbogenfuß gesetzt? Mit enlargefirstpage verbandelt.
+	,firstfoot=true		% Briefbogenfuss gesetzt? Mit enlargefirstpage verbandelt.
 	,firsthead=true		% Briefkopf an/aus. Def:an
 	,fromalign=right	% Absender rechts statt links. S.171
 	,fromrule=aftername	% Linie unter Absendername . S.171
-	%,locfield=wide		% Breite des Feldes für die Absenderergänzung narrow | wide
+	%,locfield=wide		% Breite des Feldes fÃ¼r die Absenderergï¿½nzung narrow | wide
 	%% S.182
-	,addrfield=true			% Anschrift mit Rücksendeadresse
-	,backaddress=true		% Rücksendeadresse
+	,addrfield=true			% Anschrift mit RÃ¼cksendeadresse
+	,backaddress=false		% RÃ¼cksendeadresse
 	,fromphone=true
 	,fromfax=true
 	,fromemail=true
 	,fromurl=false
 	,refline=narrow
 	%,headsepline=on%%         Line below the page number
-	,parskip=full%%           Space between paragraphs (groesser) Abstand der Absätze (
+	,parskip=full%%           Space between paragraphs (groesser) Abstand der AbsÃ¤tze (
 	%(half = halbe Zeile, full = ganze Zeile, false = keine leerzeile)
 	%,fromrule=off%%           Line below the sender's area (aftername, afteraddress)
 }
@@ -62,42 +63,23 @@
 \setkomavar{enclseparator}[Anlagen]{} %Umbenennung, kein :
 
 % ------------ Kopf ------------
+\@setplength{firstheadvpos}{19mm} %Anfang header
 \setkomavar{firsthead}{%
-      \parbox[b]{\textwidth}{\raggedleft
-        {\usekomafont{fromname}\strut\ignorespaces
-        \huge{%
-		\color{firstnamecolor}\vorname \ % Farbe Vorname übernehmen
-		\color{familynamecolor}\nachname % Farbe Nachname übernehmen%
-		}}%
-        { \\[-.4\baselineskip]%
-			\usekomafont{fromrule}{{\parbox{\textwidth}{\color{rulecolor}\rule{\textwidth}{1.3pt}}}}
-			\usekomafont{fromaddress}\strut\ignorespaces
-			\usekomavar{fromaddress}%
-			\\\Mobilefone \usekomavar*{mobilphone} \usekomavar{mobilphone}%
-			\\\Telefon \usekomavar*{fromphone} \usekomavar{fromphone}%
-			\\\Faxmachine \usekomavar*{fromfax} \usekomavar{fromfax}%
-			\\\Letter \usekomavar*{fromemail} \usekomavar{fromemail}%
-          \\}%
-      }%
+	\kopfZeile{
+		\usekomafont{fromaddress}
+		\usekomavar{fromaddress}%
+		\\\Mobilefone \usekomavar*{mobilphone} \usekomavar{mobilphone}%
+		\\\Telefon \usekomavar*{fromphone} \usekomavar{fromphone}%
+		\\\Faxmachine \usekomavar*{fromfax} \usekomavar{fromfax}%
+		\\\Letter \usekomavar*{fromemail} \usekomavar{fromemail}%
+	\\}%
 }	
 % ------------ Fuss ------------
-\setkomavar{firstfoot}{%
-	\vbox to 0pt{\vspace*{-4mm}\color{rulecolor}\rule{\textwidth}{0.7pt}}
-}
-% ------------ Unterschrift / feintunen ------------
-%\renewcommand{\unterschrift}{\includegraphics[scale=0.15]{\unterschriftBild}}
+\setkomavar{firstfoot}{\fussLinie{}{0mm}}
+\@setplength{firstfootvpos}{\paperheight-\fussAbstand}% 297-22.5 = 274.5 | org %{274.9mm}
 
-
-
-%\@setplength{sigbeforevskip}{-15pt}	% {0\baselineskip} 	% Abstand Grussfloskel Unterschrift
-%\setkomavar{signature}[]{ % siehe auch format.lco
-%	\unterschrift%\\					% use \raisebox?
-%	%\vspace{-0.4cm}\scriptsize
-%	%\usekomavar{fromname}
-%} 	% S.201
 
 % ============ Abstaende KOMA ============
-\@setplength{firstheadvpos}{19mm} %Anfang header
 \@setplength{toaddrvpos}{32mm}	%Absenderzeile im Briefsichtfenster richten fuer DINmtext
 
 % ============ Notizen ============
@@ -106,17 +88,19 @@
 % Fonts von Briefen							| Kap 4.9	S.164
 % \KOMAoption{subject}{left} 			|			 	S.191
 % \setkomavar{title}[]{Bewerbung }	| 				S.190
+% - Unterschrift / alt -
+%\renewcommand{\unterschrift}{\includegraphics[scale=0.15]{\unterschriftBild}}
+%\@setplength{sigbeforevskip}{-15pt}	% {0\baselineskip} 	% Abstand Grussfloskel Unterschrift
+%\setkomavar{signature}[]{ % siehe auch format.lco
+%	\unterschrift%\\					% use \raisebox?
+%	%\vspace{-0.4cm}\scriptsize
+%	%\usekomavar{fromname}
+%} 	% S.201
 
 % ============ TEMP ============
-\definecolor{firstnamecolor}{rgb}{0.65,0.65,0.65}
-\definecolor{familynamecolor}{rgb}{0.45,0.45,0.45}
-\definecolor{footersymbolcolor}{rgb}{0.30,0.65,0.15}
-\definecolor{addresscolor}{rgb}{0.35,0.35,0.35} %grau
 
-\definecolor{firstnamecolor}{rgb}{0.65,0.65,0.65}
-\definecolor{familynamecolor}{rgb}{0.45,0.45,0.45}
-\definecolor{rulecolor}{rgb}{0.20,0.40,0.85}
 
 % ============ Fin ============
-\recalctypearea	% Satzspiegel und Rändern neu berechnen
-
+\AtEndPreamble{
+	\recalctypearea	% Satzspiegel und Rï¿½ndern neu berechnen
+}

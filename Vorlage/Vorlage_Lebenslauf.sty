@@ -15,6 +15,8 @@
 \firstname{\vorname}
 \familyname{\nachname}
 
+\photo[\fotoHoehe][\fotoRahmen]{\foto} 
+
 \newcommand \signature{%
 	\wohnort , den \today
 	\\\sig%
@@ -22,28 +24,15 @@
 
 % ============ Style ============
 % ------------ Kopf ------------
-\newcommand \headoffset {5mm}
-\newcommand  \doubleOff {\headoffset}
-\fancyheadoffset{\headoffset} 
-\chead{\parbox[b]{\textwidth}{\raggedleft
-        {\strut\ignorespaces
-        \huge{%
-		\color{firstnamecolor}\vorname\ % Farbe Vorname übernehmen
-		\color{familynamecolor}\nachname% Farbe Nachname übernehmen%
-		}}%
-        { \\[-.4\baselineskip]%
-			{{\parbox{\textwidth}{\color{rulecolor}\rule{\textwidth}{1.3pt}}}}
-			\strut\ignorespaces
-          %\\test%
-					}%
-      }}
+\fancyheadoffset{5mm} 
+\chead{\kopfZeile{}}
 % ------------ Fuss ------------
 \fancyfoot[OR]{%
 	\hspace*{-5mm}\parbox{\textwidth+10mm}{%
-	\raggedleft Seite \thepage /\pageref{LastPage}
+	\raggedleft Lebenslauf Seite \thepage /\pageref{LastPage}
 }}
 \renewcommand{\footrulewidth}{10pt}
-\renewcommand{\footrule}{\vbox to 0pt{\color{rulecolor}\hspace{-5mm}\rule{\textwidth+10mm}{0.7pt}}}
+\renewcommand{\footrule}{\fussLinie{\hspace{-5mm}}{10mm}}
 % ------------ Titel ------------
 \newcommand \pic {%
 	\label{uref}
@@ -59,30 +48,24 @@
 	{\color{color1} \huge #1\\}
 }
 % ============ Abstaende modernCV ============ % adjust the page margins
-\newcommand \headOffset {4mm}
+\newcommand \headSep {4mm}
 \newcommand \defTop {29mm}%30mm default
 \RequirePackage[
 	a4paper,scale=0.75
 	%,showframe,showcrop%
 	,left=25mm, right=25mm
 	,headheight=10mm
-	,top=\defTop+\headOffset
-	,headsep=\headOffset
-	,bottom=35.5mm
+	,top=\defTop+\headSep
+	,headsep=\headSep
+	,bottom=\fussAbstand+0.35mm % \fussAbstand 22.5mm 35.5mm
 ]{geometry}
 
 % ============ Notizen ============
 %\setlength{\topmargin}{-6mm}
-
 %\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
 %\setlength{\makecvtitlenamewidth}{10cm}           % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
 %\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
 %\nopagenumbers{}
 %familydefault \familydefault\\sfdefault \sfdefault\\rmdefault \rmdefault\\ttdefault \ttdefault\\
 
-% ============ TEMP ============
-\definecolor{firstnamecolor}{rgb}{0.65,0.65,0.65}
-\definecolor{familynamecolor}{rgb}{0.45,0.45,0.45}
-\definecolor{rulecolor}{rgb}{0.20,0.40,0.85}
-% ============ Fin ============
 
