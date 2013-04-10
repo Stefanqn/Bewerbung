@@ -2,6 +2,9 @@
 
 \RequirePackage[dvipsnames]{xcolor}
 \RequirePackage{etoolbox}
+\RequirePackage[pdftex,unicode]{hyperref}
+\RequirePackage{bookmark}
+
 
 %% ============= Priv Data =============
 \newcommand* \vorname {}  
@@ -19,7 +22,36 @@
 \newcommand*  \fotoRahmen {1pt}
 \newcommand* \name {\vorname \ \nachname}
 
-
+% ============ Config ============
+\AtEndPreamble{
+	\hypersetup{%
+		hidelinks,
+    %bookmarks=true,         % show bookmarks bar?
+		pdfdisplaydoctitle=true,
+		bookmarksopen=true,
+		pdfpagelayout=OneColumn,% SinglePage / OneColumn 
+		% pdfpagetransition={Dissolve},
+		% Blinds 	/Dm | Box 	/M | Dissolve | Glitter 	/Di | Split 	/Dm /M | Wipe 	/Di 
+		% /Di= direction  in degrees, generally in 90 steps | /Dm horizontal (/H) or vertical (/V) | 
+		% /M is motion, in (/I) or out (/O).
+    unicode=true,          % non-Latin characters in Acrobat’s bookmarks
+    %pdftoolbar=true,        % show Acrobat’s toolbar?
+    %pdfmenubar=true,        % show Acrobat’s menu?
+    pdffitwindow=true,     % window fit to page when opened
+    pdfstartview={FitH},    % fits the FitV/FitH of the page to the window
+    pdftitle={Bewerbung - \name},    % title
+    pdfauthor={\name},     % author
+    pdfsubject={Bewerbung},   % subject of the document
+    pdfcreator={\name},   % creator of the document
+    pdfproducer={\name}, % producer of the document
+    pdfkeywords={Bewerbung} {\vorname} {\nachname}, % list of keywords
+    pdfnewwindow=true,      % links in new window
+    colorlinks=false,       % false: boxed links; true: colored links
+    linkcolor=blue,          % color of internal links (change box color with linkbordercolor)
+    citecolor=blue,        % color of links to bibliography
+    filecolor=blue,      % color of file links
+    urlcolor=blue           % color of external links
+}}
 
 
 %% ------------- Priv Data Helpers -------------
@@ -31,7 +63,7 @@
 \def \mobilNr #1{\renewcommand* \mobilNr {#1}}
 \def \festnetzNr #1{\renewcommand* \festnetzNr {#1}}
 \def \faxNr #1{\renewcommand* \faxNr {#1}}
-\def \myEmail #1{\renewcommand* \myEmail {#1}}
+\def \myEmail #1{\renewcommand* \myEmail {\href{mailto:#1}{#1}}}
 \def \unterschrift[#1][#2]#3 {\renewcommand \sig {\includegraphics[scale=#1]{#3} {#2 \scriptsize \vorname \ \nachname}}}
 \def \foto[#1][#2]#3 {\renewcommand* \foto {#3} \renewcommand* \fotoHoehe {#1} \renewcommand* \fotoRahmen {#2}}
 
