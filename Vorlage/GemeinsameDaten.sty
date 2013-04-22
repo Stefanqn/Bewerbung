@@ -2,6 +2,7 @@
 
 \RequirePackage[dvipsnames]{xcolor}
 \RequirePackage{etoolbox}
+%\RequirePackage{tabu} %crashes CV
 \RequirePackage[pdftex,unicode]{hyperref}
 \RequirePackage{bookmark}
 
@@ -38,7 +39,7 @@
     %pdftoolbar=true,        % show Acrobat’s toolbar?
     %pdfmenubar=true,        % show Acrobat’s menu?
     pdffitwindow=true,     % window fit to page when opened
-    pdfstartview={FitH},    % fits the FitV/FitH of the page to the window
+    pdfstartview={FitV},    % fits the FitV/FitH of the page to the window
     pdftitle={Bewerbung - \name},    % title
     pdfauthor={\name},     % author
     pdfsubject={Bewerbung},   % subject of the document
@@ -80,10 +81,29 @@
 	\definecolor{familynamecolor}{rgb}{0.45,0.45,0.45}
 	\definecolor{footersymbolcolor}{rgb}{0.30,0.65,0.15}
 	\definecolor{addresscolor}{rgb}{0.35,0.35,0.35} %grau
-	\definecolor{rulecolor}{rgb}{0.20,0.40,0.85}
+	%\definecolor{rulecolor}{rgb}{0.20,0.40,0.85}
 	%\colorlet{firstnamecolor}{color1!50}
 	%\colorlet{familynamecolor}{color1!100}
-	%\colorlet{rulecolor}{blue}
+	\colorlet{rulecolor}{color1}
+}
+
+%% ============= Font  =============
+\AtEndPreamble{
+	\RequirePackage[T1]{fontenc}
+	
+	\usepackage{amssymb} % square 
+	%\usepackage{pxfonts}
+	%\usepackage{txfonts}
+	%\RequirePackage{lmodern}
+	\usepackage[default]{opensans}
+	%\usepackage[]{helvet}
+	
+	%\renewcommand*{\familydefault}{\rmdefault}% nutze serifenlose Schrift
+	\renewcommand*{\familydefault}{\sfdefault}% nutze serifenlose Schrift
+	\renewcommand*{\seriesdefault}{l}
+	%\renewcommand*{\seriesdefault}{eb}% Open Sans: l, cl, m, sb, b (bx), eb
+	%\renewcommand*{\shapedefault}{\sfdefault}}% Open Sans: n, it (sl), sc, scit (scsl)
+	\selectfont
 }
 
 %% ============= Abstaende  =============
@@ -105,3 +125,7 @@
 	#1}
 }}
 
+%% === Overfull boxes ==
+%% \overfullrule=0pt
+%\linebreak
+%http://www.tex.ac.uk/cgi-bin/texfaq2html?label=overfull

@@ -1,5 +1,4 @@
-\ProvidesPackage{Vorlage_Merge}
-
+\ProvidesPackage{Vorlage_Bewerbung}
 
 % ============ Packete ============
 \RequirePackage[utf8]{inputenc}     
@@ -10,20 +9,9 @@
 \RequirePackage[pdftex,unicode]{hyperref} %pdftex
 \RequirePackage{bookmark}
 
-
-
-
 % ============ Commands ============
 % bei includepdf als zweites argument angeben --> Bookmark auf Seitenanfang statt auf Pseudochapter 
 \newcommand*{\@pageRef}[2][]{\edef\@currentHref{\AM@linkname.\AM@page}\addcontentsline{toc}{section}{\protect\numberline{}#1}}
-
-% filecontents is a verbatim-like environment and can't be used as an argument of a macro.
-% \newcommand \gen[2]{%
-% 	\begin{filecontents}{#1.tex}
-% 	\input{#2.tex}
-% 	\end{filecontents}
-% 	\immediate\write18{pdflatex  -output-directory=\buildDir\ #1.tex}
-% }
 
 % ============ Kommentare ============
 %\includepdf[pages=-,link,linkname=testRef]{./build/TestRefs.pdf}
@@ -36,3 +24,11 @@
 %     2,section,1,Second Section Entry,p3}]
 %     {publishing-logo+layout.pdf}     
 %\LARGE\hyperlink{\lebenslauf.2}{{LL 2}}\\
+
+% filecontents is a verbatim-like environment and can't be used as an argument of a macro.
+% \newcommand \gen[2]{%
+% 	\begin{filecontents}{#1.tex}
+% 	\input{#2.tex}
+% 	\end{filecontents}
+% 	\immediate\write18{pdflatex  -output-directory=\buildDir\ #1.tex}
+% }

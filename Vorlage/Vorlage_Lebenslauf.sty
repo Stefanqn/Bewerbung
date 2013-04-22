@@ -4,7 +4,9 @@
 \RequirePackage{GemeinsameDaten}
 %\RequirePackage[utf8]{inputenc}
 \RequirePackage[ngerman]{babel}% deutsch
-\RequirePackage{calc,layout,lastpage,lipsum}
+\RequirePackage{calc,layout,lastpage,lipsum,verbatim}
+\RequirePackage{tabu} %crashes CV?
+\RequirePackage{datetime}
 
 
 
@@ -25,6 +27,8 @@
 \end{minipage}}
 
 % ============ Style ============
+ \setlength{\hintscolumnwidth}{0.18\textwidth} %Linke Spalte groesser def.:0.175, fuer Familienstand 0.192
+\AtEndPreamble{\recomputecvlengths}
 % ------------ Kopf ------------
 \fancyheadoffset{5mm} 
 \chead{\kopfZeile{}}
@@ -41,14 +45,126 @@
      \color{color1}%
 	 \framebox{\includegraphics[width=\@photowidth]{\@photo}}}
 
-\newcommand \picLine {\makebox[\the\textwidth+5mm][r]{\pic}}
+\newcommand \picLine {\makebox[\the\textwidth+5mm][r]{\pic}}% \the\textwidth+5mm
 \newcommand* \titel [1] {%
 	\newlength{\picLH}%
 	\settoheight{\picLH}{\picLine}%
 	\picLine%	Value = \the\picLH
-	\vspace{-\picLH}
-	{\color{color1} \huge #1\\}
+	\vspace{-\picLH}\vspace*{2.5mm}
+	{\color{color1} \huge  #1}
+	\vspace*{2.5mm}
 }
+% ------------ Sections ------------
+\newlength \sectionSchriftHoehe
+\newlength \dekoHoehe
+\setlength \dekoHoehe {0.8ex}% 0.95ex default
+\newcommand \sectionBeschriftung[1]{\parbox[t]{\maincolumnwidth}{\strut\sectionstyle{#1}}}
+\renewcommand*{\section}[1]{%
+  \par\addvspace{3.5ex}% 2.5ex default
+  \phantomsection{}% reset the anchor for hyperrefs
+  \addcontentsline{toc}{section}{#1}%
+	%
+	\settoheight \sectionSchriftHoehe {\sectionBeschriftung{#1}}
+	
+  \parbox[t]{\hintscolumnwidth}%
+	{\strut\raggedleft\raisebox{.5\sectionSchriftHoehe-.5\dekoHoehe}{\color{color1}\rule{\hintscolumnwidth}{\dekoHoehe}}}%
+  %
+	\hspace{\separatorcolumnwidth}%
+  \sectionBeschriftung{#1}%
+  \par\nobreak\addvspace{1.1mm}\@afterheading}% to avoid a pagebreak after the heading | 1ex default
+
+% ------------ Eintraege ------------
+%\eintrag{Dauer}{Firma}{Ort}{Beschreibung ..... mehrzeilig}
+\newcommand \eintragK [2]{%
+	\cvitem[0.15em]{#1}{#2}
+}
+
+% ohne datumskorrektur
+\newcommand \eintragKb [2]{%
+	\cvitem[0.15em]{#1}{#2}
+}
+
+\newcommand* \datumsVKorrektur {-5mm}
+\newcommand \eintragM [4]{%
+	\ifx&#4&
+		\eintragKK{#1}{\mdseries{#2}\normalfont}{#3}
+	\else
+		\eintragMM{#1}{\mdseries{#2}\normalfont}{#3}{\vspace{\datumsVKorrektur}#4}%
+	\fi
+}
+
+%\eintrag{Dauer}{Firma}{JobTitel}{Ort}{Beschreibung ..... mehrzeilig}	- mit Aufzaehlungen
+\newcommand \eintragL [5]{%
+	{\if\relax\detokenize{#5}\relax
+		\eintragLLb{#1}{\mdseries{#2}\normalfont}{\textit{#3}}{#4}
+	\else
+		\eintragLL{#1}{\mdseries{#2}\normalfont}{\textit{#3}}{#4}{\vspace{\datumsVKorrektur}#5}
+	\fi}
+}
+%\eintrag{Dauer}{Firma}{JobTitel}{Ort}{Beschreibung ..... mehrzeilig}	- mehrzeiliger Text
+\newcommand \eintragLb[5]{%
+	\eintragL{#1}{#2}{#3}{#4}{#5\strut}
+}
+
+% ------------ Datum / Zeitspanne ------------
+%\newlength\mylen
+%\settowidth\mylen{--}
+%\newlength\hintscolumnwidth
+%\setlength\hintscolumnwidth{0.3\textwidth} % best: 0.175\textwidth
+%\newcommand* \datumsZellenBreiteAlt {11mm}
+%\newcommand* \datumsZifferMonatsAbstandAlt{-0.8mm}
+%\newcommand \zeitspanneAlt[4]{
+%	{{\parbox{\datumsZellenBreiteAlt}{\centering{#2\\\vspace{-2.8mm}\tiny #1}}}\hspace{\datumsZifferMonatsAbstandAlt}{\raisebox{0.4mm}{\color{blue}$\rightarrow$}}\hspace{\datumsZifferMonatsAbstandAlt}{\parbox{\datumsZellenBreiteAlt}{\centering{#4\\\vspace{-2.8mm}\tiny #3}}}}
+%}
+\setlength\fboxsep{0pt}
+\newcommand* \datumsZellenBreite {10.5mm}
+\newcommand* \datumsZifferMonatsAbstand{-2.8mm}
+
+\newcommand \zeitspanne[4]{%same as B, but uses \newline instead of \\ for linebreak
+	{\parbox[t]{\datumsZellenBreite}{\centering{#2\baselineskip=\datumsZifferMonatsAbstand\newline\par\vspace{\datumsZifferMonatsAbstand}\tiny{\strut#1}}}}\hspace{-0.7mm}{\raisebox{0.35mm}{\color{color1}--}}\hspace{-0.2mm}%
+	{\parbox[t]{\datumsZellenBreite}{\centering{#4\baselineskip=\datumsZifferMonatsAbstand\newline\par\vspace{\datumsZifferMonatsAbstand}\tiny{\strut#3}}}}%
+}
+
+\def \zeit[#1.#2-#3.#4]{\zeitspanne{\monthname[#1]}{#2}{\monthname[#3]}{#4}}
+\def \zeitB [#1.#2-#3.#4]{ #1.#2--#3.#4}
+% ------------ Funktionen Priv ------------
+\newlength \hauptSpaltenBreite
+\setlength\hauptSpaltenBreite {\maincolumnwidth}
+\newcommand* \eintragKK [4][.25em]{%
+	\begin{tabu}{@{} p{\hintscolumnwidth} @{\hspace{\separatorcolumnwidth}} p{\maincolumnwidth} @{}}{
+	\raggedleft\hintstyle{#2} &{#3 \hfill #4}
+	}%
+	\end{tabu}%
+  \par\addvspace{#1}}
+
+%\eintrag{Dauer}{Firma}{Ort}{Beschreibung ..... mehrzeilig}
+\newcommand \eintragMM [5][.25em]{%
+	\begin{tabu}{@{} p{\hintscolumnwidth} @{\hspace{\separatorcolumnwidth}} p{\maincolumnwidth} @{}}{
+	\raggedleft\hintstyle{#2} & {#3 \hfill #4}\\% %\vspace{\datumsVKorrektur} -4mm perfekt
+	&{\begin{minipage}[t]{\linewidth}#5\end{minipage}}
+	}%
+	\end{tabu}%
+  \par\addvspace{#1}}
+	
+\newcommand* \eintragLLb [5][.25em]{%
+	\begin{tabu}{%
+	@{} p{\hintscolumnwidth} @{\hspace{\separatorcolumnwidth}}%
+	p{.55\maincolumnwidth}p{.25\maincolumnwidth}r@{}%
+	}{%
+	\raggedleft\hintstyle{#2} & {#3} & {#4} & {#5}
+	}%
+	\end{tabu}%
+	\par\addvspace{#1}}
+
+\newcommand* \eintragLL [6][.25em]{%
+	\begin{tabu}{@{} p{\hintscolumnwidth} @{\hspace{\separatorcolumnwidth}}%
+	p{.55\maincolumnwidth}p{.25\maincolumnwidth}r@{}}{
+	\raggedleft\hintstyle{#2} & {#3} & {#4} & {#5} %
+	\\ & \multicolumn3{p{\maincolumnwidth}}{\begin{minipage}[t]{\linewidth}#6\end{minipage}}%
+	}%
+	\end{tabu}%
+  \par\addvspace{#1}}
+	
 % ============ Abstaende modernCV ============ % adjust the page margins
 \newcommand \headSep {4mm}
 \newcommand \defTop {29mm}%30mm default
@@ -69,5 +185,12 @@
 %\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
 %\nopagenumbers{}
 %familydefault \familydefault\\sfdefault \sfdefault\\rmdefault \rmdefault\\ttdefault \ttdefault\\
+
+% ============ Temp ============
+
+
+
+
+
 
 

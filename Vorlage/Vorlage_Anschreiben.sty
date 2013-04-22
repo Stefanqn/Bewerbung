@@ -10,14 +10,10 @@
 	verbatim,% Kommentare
 	marvosym,% Tel. Symbole
 	calc}
-\RequirePackage[T1]{fontenc}
-%\usepackage{pxfonts}
-%\usepackage{txfonts}
-\RequirePackage{lmodern}
+	
+
 \RequirePackage{xcolor}
 \RequirePackage{picture,eso-pic,etoolbox,tikz}
-
-
 	
 % ============ Koma Optionen ============
 %\KOMAoption{Option }{Werteliste }
@@ -34,7 +30,7 @@
 	%,locfield=wide		% Breite des Feldes für die Absendererg�nzung narrow | wide
 	%% S.182
 	,addrfield=true			% Anschrift mit Rücksendeadresse
-	,backaddress=false		% Rücksendeadresse
+	,backaddress=plain		% Rücksendeadresse
 	,fromphone=true
 	,fromfax=true
 	,fromemail=true
@@ -47,6 +43,10 @@
 }
 
 % ============ Daten Abgleich ============
+\setkomavar{backaddressseparator} {\ \strut\textcolor{color1}%
+%{\Neutral} }
+{ $\bullet$ }}
+
 \setkomavar{fromaddress}{\strasse\\\PLZ \ \wohnort}
 \newkomavar[Mobil]{mobilphone}
 \setkomavar{mobilphone}[]{\mobilNr}
@@ -57,8 +57,7 @@
 \setkomavar{fromname}{\vorname \ \nachname} % Opt. zwischen Args {}[Bez]{
 
 % ============ Style ============
-\renewcommand*{\familydefault}{\sfdefault}% nutze serifenlose Schrift
-\selectfont
+
 
 \setkomavar{placeseparator}[]{, den }
 \setkomavar{enclseparator}[Anlagen]{} %Umbenennung, kein :
@@ -81,7 +80,7 @@
 
 
 % ============ Abstaende KOMA ============
-\@setplength{toaddrvpos}{32mm}	%Absenderzeile im Briefsichtfenster richten fuer DINmtext
+%\@setplength{toaddrvpos}{32mm}	%Absenderzeile im Briefsichtfenster richten fuer DINmtext
 
 % ============ Notizen ============
 % Variablen  scrlttr2.				 		| Kap. 4.1 	S.145
