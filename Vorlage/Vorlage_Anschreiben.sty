@@ -5,6 +5,7 @@
 % ============ Packages ============
 \RequirePackage{GemeinsameDaten}
 %\RequirePackage[utf8]{inputenc}
+\RequirePackage[ngerman=ngerman-x-latest]{hyphsubst}
 \RequirePackage[ngerman]{babel}% deutsch
 \RequirePackage{graphicx,
 	verbatim,% Kommentare
@@ -19,7 +20,7 @@
 %\KOMAoption{Option }{Werteliste }
 \KOMAoptions{
 	 BCOR=0mm			% Keine Bindekorrektur
-	,draft=on			% Entwurfsstadium
+	%,draft=on			% Entwurfsstadium
 	,fontsize=12pt		% Schriftgr. 12 std. bis 10 ok.
 	,foldmarks=false	% Keine Faltmarken
 	,enlargefirstpage=true	% optionale vergroesserung des Txt Bereichs d. 1 Seite
@@ -79,6 +80,8 @@
 \@setplength{firstfootvpos}{\paperheight-\fussAbstand}% 297-22.5 = 274.5 | org %{274.9mm}
 
 
+
+
 % ============ Abstaende KOMA ============
 %\@setplength{toaddrvpos}{32mm}	%Absenderzeile im Briefsichtfenster richten fuer DINmtext
 
@@ -98,9 +101,13 @@
 %} 	% S.201
 
 % ============ TEMP ============
-
+%\setlength{\textheight}{700pt}
+%\\ \the\textheight	\\%635.5pt
+%\the\footskip	%50.75
 
 % ============ Fin ============
 \AtEndPreamble{
-	\recalctypearea	% Satzspiegel und R�ndern neu berechnen
+	\recalctypearea	% Satzspiegel und Rändern neu berechnen
+	%\setlength{\footskip}{-30pt} %Anlagen anpassen
+	\setlength{\footskip}{0pt}
 }

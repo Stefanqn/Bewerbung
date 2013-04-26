@@ -6,7 +6,8 @@
 \RequirePackage[ngerman]{babel}% deutsch
 \RequirePackage{calc,layout,lastpage,lipsum,verbatim}
 \RequirePackage{tabu} %crashes CV?
-\RequirePackage{datetime}
+\RequirePackage{datetime,setspace}
+
 
 
 
@@ -27,7 +28,7 @@
 \end{minipage}}
 
 % ============ Style ============
- \setlength{\hintscolumnwidth}{0.18\textwidth} %Linke Spalte groesser def.:0.175, fuer Familienstand 0.192
+ \setlength{\hintscolumnwidth}{0.2\textwidth} %Linke Spalte groesser def.:0.175, fuer Familienstand 0.192. Mit geboren 0.18
 \AtEndPreamble{\recomputecvlengths}
 % ------------ Kopf ------------
 \fancyheadoffset{5mm} 
@@ -75,6 +76,8 @@
 
 % ------------ Eintraege ------------
 %\eintrag{Dauer}{Firma}{Ort}{Beschreibung ..... mehrzeilig}
+\newcommand* \eintragsAbstand {0.85em} %def. 0.25em
+
 \newcommand \eintragK [2]{%
 	\cvitem[0.15em]{#1}{#2}
 }
@@ -84,21 +87,25 @@
 	\cvitem[0.15em]{#1}{#2}
 }
 
-\newcommand* \datumsVKorrektur {-5mm}
+\newlength \datumsVKorrektur
+\setlength \datumsVKorrektur {-\baselineskip}%{-1.5\baselineskip} %-5mm
+\newlength \datumsEintragEinzeiligVStrafe
+\setlength \datumsEintragEinzeiligVStrafe {-0.5\baselineskip}
+
 \newcommand \eintragM [4]{%
 	\ifx&#4&
-		\eintragKK{#1}{\mdseries{#2}\normalfont}{#3}
+		\eintragKK[\eintragsAbstand]{#1}{\mdseries{#2}\normalfont}{#3}\vspace{\datumsEintragEinzeiligVStrafe}
 	\else
-		\eintragMM{#1}{\mdseries{#2}\normalfont}{#3}{\vspace{\datumsVKorrektur}#4}%
+		\eintragMM[\eintragsAbstand]{#1}{\mdseries{#2}\normalfont}{#3}{\vspace{\datumsVKorrektur}#4}%
 	\fi
 }
 
 %\eintrag{Dauer}{Firma}{JobTitel}{Ort}{Beschreibung ..... mehrzeilig}	- mit Aufzaehlungen
 \newcommand \eintragL [5]{%
 	{\if\relax\detokenize{#5}\relax
-		\eintragLLb{#1}{\mdseries{#2}\normalfont}{\textit{#3}}{#4}
+		\eintragLLb[\eintragsAbstand]{#1}{\mdseries{#2}\normalfont}{\textit{#3}}{#4}\vspace{\datumsEintragEinzeiligVStrafe}
 	\else
-		\eintragLL{#1}{\mdseries{#2}\normalfont}{\textit{#3}}{#4}{\vspace{\datumsVKorrektur}#5}
+		\eintragLL[\eintragsAbstand]{#1}{\mdseries{#2}\normalfont}{\textit{#3}}{#4}{\vspace{\datumsVKorrektur}#5}
 	\fi}
 }
 %\eintrag{Dauer}{Firma}{JobTitel}{Ort}{Beschreibung ..... mehrzeilig}	- mehrzeiliger Text

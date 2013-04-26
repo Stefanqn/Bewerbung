@@ -12,6 +12,9 @@
 \newcommand* \zeugnis {../../Bsp-Bin/ZeugnisBsp.pdf}
 \newcommand* \priv {../Priv-Bin/}
 
+% \input{../Priv-Latex/A_Plath.tex}% <<<<<<<<<<<<<<<<<<<<<<<<
+% \input{../Priv-Latex/Inhalt-Anschreiben.tex}
+
 %Anschreiben
 \begin{filecontents}{anschreibenGen.tex}
 \documentclass[DINmtext]{scrlttr2}
@@ -20,7 +23,7 @@
 \input{../Priv-Latex/sk.tex}
 \farbe{blue}
 \begin{document}
-\input{../Priv-Latex/Inhalt-Anschreiben.tex}
+\input{../Priv-Latex/A_Plath.tex}
 \end{document}
 \end{filecontents}
 \immediate\write18{pdflatex  -output-directory=\buildDir\ anschreibenGen.tex}
@@ -49,23 +52,7 @@
 	\includepdf[pages=-, addtotoc={1, pageRef, 0,Lebenslauf,lebenslauf}]{cvGen}
 }{\Huge kein CV}
 
-
-% Weitere Anlagen
-\bookmark[page=\thepage,level=0]{Abschlusszeugnisse}
-\bookmark[page=\thepage,level=1]{Master: FH-Wedel}\includepdf[pages=-]{\zeugnis}
-\bookmark[page=\thepage,level=1]{Diplom: FH-Furtwangen}\includepdf[pages=-]{\zeugnis}
-\bookmark[page=\thepage,level=1]{Abitur: IGS-LO}\includepdf[pages=-]{\priv abi}
-
-\bookmark[page=\thepage,level=0]{Arbeitszeugnisse}
-\bookmark[page=\thepage,level=1]{Gentleware}\includepdf[pages=-] {\priv EmpfS-Gentleware}
-\bookmark[page=\thepage,level=1]{Fundação CERTI}\includepdf[pages=-]{\priv EmpfS-certi}
-
-\bookmark[page=\thepage,level=0]{Zertifikate}
-\includepdf[pages=-]{\priv OiO_EJB3}
-
-\bookmark[page=\thepage,level=0]{Weitere Zeugnisse}
-\bookmark[page=\thepage,level=1]{SELU - USA}\includepdf[pages=-]{\zeugnis}
-\bookmark[page=\thepage,level=1]{UFSC - Brasilien}\includepdf[pages=-]{\priv BR_UFSC}
+\input{../Priv-Latex/Inhalt-Anlagen.tex}
 
 \begin{comment}
 \end{comment}

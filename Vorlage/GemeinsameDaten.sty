@@ -35,11 +35,11 @@
 		% Blinds 	/Dm | Box 	/M | Dissolve | Glitter 	/Di | Split 	/Dm /M | Wipe 	/Di 
 		% /Di= direction  in degrees, generally in 90 steps | /Dm horizontal (/H) or vertical (/V) | 
 		% /M is motion, in (/I) or out (/O).
-    unicode=true,          % non-Latin characters in Acrobat’s bookmarks
-    %pdftoolbar=true,        % show Acrobat’s toolbar?
-    %pdfmenubar=true,        % show Acrobat’s menu?
+    unicode=true,          % non-Latin characters in AcrobatÂ’s bookmarks
+    %pdftoolbar=true,        % show AcrobatÂ’s toolbar?
+    %pdfmenubar=true,        % show AcrobatÂ’s menu?
     pdffitwindow=true,     % window fit to page when opened
-    pdfstartview={FitV},    % fits the FitV/FitH of the page to the window
+    pdfstartview={FitH},    % fits the FitV/FitH of the page to the window
     pdftitle={Bewerbung - \name},    % title
     pdfauthor={\name},     % author
     pdfsubject={Bewerbung},   % subject of the document
@@ -111,9 +111,11 @@
 \newcommand \fussLinie[2]{\vbox to 0pt{\color{rulecolor}#1\rule{\textwidth+#2}{0.7pt}}}
 
 %% ============= Funktionen =============
-\newcommand \kopfName {\strut\ignorespaces \huge{%
-		\color{firstnamecolor}\vorname\ % Farbe Vorname übernehmen
-		\color{familynamecolor}\nachname% Farbe Nachname übernehmen%
+\newcommand \kopfName {\strut\ignorespaces %
+		%\large \color{firstnamecolor} Dipl. Inf. (FH) \& M.Sc. 
+		\huge{%
+			\color{familynamecolor}\vorname\ % Farbe Vorname Ã¼bernehmen
+			\color{familynamecolor}\nachname% Farbe Nachname Ã¼bernehmen%
 }}
 
 \newcommand \kopfZeile[1]{%
