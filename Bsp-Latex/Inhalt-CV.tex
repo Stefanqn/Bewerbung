@@ -1,84 +1,127 @@
-\titel{Lebenslauf}
+\laengsteStadt{Hamburg}
+\emergencystretch=25pt\tolerance=800\hyphenpenalty=1000%\hbadness=10000\linepenalty=5000%\linepenalty=40\hyphenpenalty=80%\exhyphenpenalty=3000%
+\titel{\emph{Lebenslauf}}
+
 
 \section{Persönliche Daten}
-\cvitem{Name}										{\nachname}
-\cvitem{Vorname}								{\vorname}
-\cvitem{Geboren}								{5. September 1981 in Musterstadt}
-\cvitem{Nationalität}						{deutsch}
-\cvitem{Familienstand}					{ledig}
-\cvitem{Anschrift}							{\strasse \ in \PLZ \ \wohnort}
-\cvitem{Telefon}								{\mobilNr}
-\cvitem{Email}									{\myEmail}
+\eintragK{Name}										{\nachname}
+\eintragK{Vorname}								{\vorname}
+\eintragK{Geburtsdatum}						{5. September 1900}
+\eintragK{Geburtsort}							{Kükennest}
+\eintragK{Nationalität}						{deutsch}
+\eintragK{Anschrift}							{\strasse}
+\eintragK{}												{\PLZ \ \wohnort}
+\eintragK{Telefon}								{\mobilNr}
+\eintragK{Email}									{\myEmail}
+
+%\onehalfspacing\setlength\datumsVKorrektur{-1.2\baselineskip}
+%\begin{comment}
+\section{Schulausbildung}
+\eintragL{\zeit[09.1992-01.2000]}{Willi-Gymnasium}{}{Stadt}{}
+\eintragL{\zeit[02.2000-03.2001]}{Werner}{Abitur}{Stadt}{%
+	\begin{itemize}%
+	\item Abschluss: allgemeine Hochschulreife
+	\item Leistungskurse: ....
+	\end{itemize}}
 
 
-\section{Education}
-\cventry{year--year}{Degree}{Institution}{City}{\textit{Grade}}{Description}  % arguments 3 to 6 can be left empty
-\cventry{year--year}{Degree}{Institution}{City}{\textit{Grade}}{Description}
+\section{Hochschulstudium}
+\eintragL{\zeit[03.2002-03.2008]}{Fachhochschule }{Dipl.}{Stadt}{%
+	\begin{itemize}%
+	\item Studiengang: 
+	\item Abschluss: ...
+	\item Abschlussnote: ...
+	\item Diplomarbeit:
+		\begin{itemize}
+		\item \glqq ...\grqq 
+		\item Themenbereich: ...
+		\item verwendete Technologien: ...
+	\end{itemize}
+	\end{itemize}
+}
 
-\section{Master thesis}
-\cvitem{title}{\emph{Title}}
-\cvitem{supervisors}{Supervisors}
-\cvitem{description}{Short thesis abstract}
+\eintragL{\zeit[08.2005-12.2005]}{University}{}{Stadt}{%
+	\begin{itemize}%
+	\item Auslandsstudiensemester 
+	\item ...
+	\end{itemize}
+}
 
-\section{Experience}
-\subsection{Vocational}
-\cventry{year--year}{Job title}{Employer}{City}{}{General description no longer than 1--2 lines.\newline{}%
-Detailed achievements:%
-\begin{itemize}%
-\item Achievement 1;
-\item Achievement 2, with sub-achievements:
-  \begin{itemize}%
-  \item Sub-achievement (a);
-  \item Sub-achievement (b), with sub-sub-achievements (don't do this!);
-    \begin{itemize}
-    \item Sub-sub-achievement i;
-    \item Sub-sub-achievement ii;
-    \item Sub-sub-achievement iii;
-    \end{itemize}
-  \item Sub-achievement (c);
-  \end{itemize}
-\item Achievement 3.
-\end{itemize}}
-\cventry{year--year}{Job title}{Employer}{City}{}{Description line 1\newline{}Description line 2}
-\subsection{Miscellaneous}
-\cventry{year--year}{Job title}{Employer}{City}{}{Description}
 
-\section{Languages}
-\cvitemwithcomment{Language 1}{Skill level}{Comment}
-\cvitemwithcomment{Language 2}{Skill level}{Comment}
+\eintragL{\zeit[10.2008-09.2010]}{Fachhochschule}{M.Sc.}{Stadt}{%
+	\begin{itemize}%
+	\item Studiengang: ...
+	\item Vertiefung: ...
+	\item Abschluss: Master of Science
+	\item Abschlussnote: ...
+	\item Masterthesis:
+	\begin{itemize}
+		\item \glqq ... \grqq
+		\item Schwerpunkte:...
+	\end{itemize}
+	\end{itemize}
+}
+%\end{comment}
 
-\section{Computer skills}
-\cvdoubleitem{category 1}{XXX, YYY, ZZZ}{category 4}{XXX, YYY, ZZZ}
-\cvdoubleitem{category 2}{XXX, YYY, ZZZ}{category 5}{XXX, YYY, ZZZ}
-\cvdoubleitem{category 3}{XXX, YYY, ZZZ}{category 6}{XXX, YYY, ZZZ}
+\section{Berufliche Tätigkeiten}
+%\begin{comment}
+\eintragL{\zeit[08.2004-02.2005]}{Technologies}{}{Stadt}{%
+	\begin{itemize}
+	\item Erstes Praxissemester
+	\item ...
+	\item Benutzte Techniken: ...
+	\end{itemize}
+}
 
-\section{Interests}
-\cvitem{hobby 1}{Description}
-\cvitem{hobby 2}{Description}
+\eintragL{\zeit[04.2006-09.2006]}{Fundação}{}{Stadt}{%
+	\begin{itemize}
+	\item Zweites Praxissemester
+	\item ...
+	\item ...
+	\end{itemize}
+}
 
-\section{Extra 1}
-\cvlistitem{Item 1}
-\cvlistitem{Item 2}
-\cvlistitem{Item 3. This item is particularly long and therefore normally spans over several lines. Did you notice the indentation when the line wraps?}
 
-\section{Extra 2}
-\cvlistdoubleitem{Item 1}{Item 4}
-\cvlistdoubleitem{Item 2}{Item 5\cite{book1}}
-\cvlistdoubleitem{Item 3}{Item 6. Like item 3 in the single column list before, this item is particularly long to wrap over several lines.}
+\eintragL{\zeit[07.2008-12.2008]}{Firma}{Architect}{Stadt}{%
+	\begin{itemize}
+	\item Projektarbeit und Consulting
+	\item ...
+	\item ...
+	\end{itemize}
+}
 
-\section{References}
-\begin{cvcolumns}
-  \cvcolumn{Category 1}{\begin{itemize}\item Person 1\item Person 2\item Person 3\end{itemize}}
-  \cvcolumn{Category 2}{Amongst others:\begin{itemize}\item Person 1, and\item Person 2\end{itemize}(more upon request)}
-  \cvcolumn[0.5]{All the rest \& some more}{\textit{That} person, and \textbf{those} also (all available upon request).}
-\end{cvcolumns}
 
-% Publications from a BibTeX file without multibib
-%  for numerical labels: \renewcommand{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% CONSIDER MERGING WITH PREAMBLE PART
-%  to redefine the heading string ("Publications"): \renewcommand{\refname}{Articles}
-\nocite{*}
-\bibliographystyle{plain}
-\bibliography{publications}                        % 'publications' is the name of a BibTeX file
+\eintragL{\zeit[01.2009-01.2009]}{Firma}{Architect}{Stadt}{%
+	\strut Freiberuflich beratend für ...
+}
 
-\vfill
+
+\section{Weitere Tätigkeiten}
+\eintragL{\zeit[09.2002-05.2003]}{Haus der Jugend}{Zivildienst}{Stadt}{}
+\eintragL{\zeit[09.2003-02.2004]}{...}{}{...}{\strut Gewähltes Mitglied des ...}
+
+\newcommand \tabBreite {45.1mm}
+\newcommand \tabSpace {3mm}
+
+\section{IT--Kenntnisse}
+\eintragKb{}{\begin{tabu} to \maincolumnwidth {p{\tabBreite}@{\hspace{\tabSpace}}X{l}}
+	{\mdseries Betriebssysteme}: & Windows, Linux\\
+	{\mdseries Office}: & PowerPoint, \LaTeX \\
+	{\mdseries ...}: & ...\\ 
+	{\mdseries ...}: & ...\\
+	{\mdseries ...}: & ...
+\end{tabu}
+}
+
+\section{Fremdsprachen}
+\eintragKb{}{\begin{tabu} to \maincolumnwidth {p{\tabBreite}@{\hspace{\tabSpace}}X{l}}
+	{\mdseries Englisch}: & verhandlungssicher\\
+	{\mdseries ...}: & ...\\
+	{\mdseries ...}: & ...
+\end{tabu}
+}
+
+%\end{comment}
+\vspace{3\baselineskip}
+%\vfill
 \signature

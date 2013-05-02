@@ -5,6 +5,8 @@
 \input{../Bsp-Latex/mm.tex}
 
 \newcommand* \priv {../Priv-Bin/}
+\newcommand* \pub {../Bsp-Bin/}
+
 \usepackage{Vorlage_Bewerbung}
 \farbe{blue}
 
@@ -12,7 +14,6 @@
 % Filename without blanks
 \newcommand* \anschreiben {./build/anschreiben.pdf}
 \newcommand* \lebenslauf {./build/cv.pdf}
-\newcommand* \zeugnis {../../Bsp-Bin/ZeugnisBsp.pdf}
 
 \begin{document}
 
@@ -23,6 +24,6 @@
 	\includepdf[pages=-, addtotoc={1, pageRef, 0,Lebenslauf,lebenslauf}]{\lebenslauf}
 }{\Huge kein CV}
 
-
-\input{../Priv-Latex/Inhalt-Anlagen.tex}
+\input{../Bsp-Latex/Inhalt-Anlagen.tex}
+%\input{../Priv-Latex/Inhalt-Anlagen.tex}
 \end{document}

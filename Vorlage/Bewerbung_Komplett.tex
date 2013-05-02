@@ -9,21 +9,19 @@
 
 % Filename without blanks
 \newcommand \buildDir {build/}
-\newcommand* \zeugnis {../../Bsp-Bin/ZeugnisBsp.pdf}
 \newcommand* \priv {../Priv-Bin/}
-
-% \input{../Priv-Latex/A_Plath.tex}% <<<<<<<<<<<<<<<<<<<<<<<<
-% \input{../Priv-Latex/Inhalt-Anschreiben.tex}
+\newcommand* \pub {../Bsp-Bin/}
 
 %Anschreiben
 \begin{filecontents}{anschreibenGen.tex}
 \documentclass[DINmtext]{scrlttr2}
 \usepackage[utf8x]{inputenc}
 \usepackage{Vorlage_Anschreiben}
-\input{../Priv-Latex/sk.tex}
+%\input{../Priv-Latex/sk.tex}
+\input{../Bsp-Latex/mm.tex}
 \farbe{blue}
 \begin{document}
-\input{../Priv-Latex/A_Plath.tex}
+\input{../Bsp-Latex/Inhalt-Anschreiben.tex}%<<<<<<<<<<<<<<<<<<<<<<<<<
 \end{document}
 \end{filecontents}
 \immediate\write18{pdflatex  -output-directory=\buildDir\ anschreibenGen.tex}
@@ -35,10 +33,12 @@
 \usepackage{Vorlage_Lebenslauf}
 \usepackage[utf8x]{inputenc}
 \PrerenderUnicode{ßÄäÜüÖö}
-\input{../Priv-Latex/sk.tex}    
+%\input{../Priv-Latex/sk.tex}    
+\input{../Bsp-Latex/mm.tex}
 \moderncvcolor{blue} 
 \begin{document}
-\input{../Priv-Latex/Inhalt-CV.tex}
+%\input{../Priv-Latex/Inhalt-CV.tex}
+\input{../Bsp-Latex/Inhalt-CV.tex}
 \end{document}
 \end{filecontents}
 \immediate\write18{pdflatex  -output-directory=\buildDir\ cvGen.tex}
@@ -49,13 +49,14 @@
 	\includepdf[pages=-, addtotoc={1, pageRef, 0,Anschreiben,anschreiben}]{anschreibenGen}
 }{\Huge kein Anschreiben}
 \IfFileExists{\buildDir cvGen.pdf}{
-	\includepdf[pages=-, addtotoc={1, pageRef, 0,Lebenslauf,lebenslauf}]{cvGen}
+	\bookmark[page=\thepage,level=0]{Lebenslauf}
+	\includepdf[pages=-]{cvGen}
 }{\Huge kein CV}
 
-\input{../Priv-Latex/Inhalt-Anlagen.tex}
+\input{../Bsp-Latex/Inhalt-Anlagen.tex}
+%\input{../Priv-Latex/Inhalt-Anlagen.tex}
+\end{document}
 
-\begin{comment}
-\end{comment}
 
 %\immediate\write18{gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dNOPAUSE -dQUIET -dBATCH -sOutputFile=\build \currfilebase -compressed.pdf \build \currfilebase .pdf}
 
@@ -64,5 +65,3 @@
 % gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dNOPAUSE -dBATCH -sOutputFile=build/Bewerbung_Komplett-compressed.pdf build/Bewerbung_Komplett.pdf
 
 % "C:\Program Files\gs\gs9.07\bin\gswin64c.exe" -sDEVICE=pdfwrite -sPAPERSIZE=a4 -dCompatibilityLevel=1.6 -dNOPAUSE -dBATCH -sOutputFile=build/Bewerbung_Komplett-compressed.pdf build/Bewerbung_Komplett.pdf
-
-\end{document}
