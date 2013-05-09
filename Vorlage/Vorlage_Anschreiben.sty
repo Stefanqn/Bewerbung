@@ -110,6 +110,8 @@
 % ============ Fin ============
 \AtEndPreamble{
 	\recalctypearea	% Satzspiegel und Rändern neu berechnen
-	%\setlength{\footskip}{-30pt} %Anlagen anpassen
-	\setlength{\footskip}{0pt}
+	%\the\useplength{refvpos} % >> 229.04468pt			\@addtoplength{refvpos}{0}  	\@setplength{refvpos}{229pt}
+	%\@setplength{subjectaftervskip}{\baselineskip} %subjectaftervskip >>  29pt
+	%\setlength{\footskip}{-8pt} % -30pt Anlagen anpassen
+	%\setlength{\footskip}{0pt}
 }
