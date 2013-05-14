@@ -18,7 +18,7 @@ Latex Bewerbungsvorlage
 
 Diskussion
 ----------
-[a link](http://www.golatex.de/bewerbungsvorlage-anschreiben-koma-lebenslauf-moderncv-t10684.html)
+[Golatex Forum](http://www.golatex.de/bewerbungsvorlage-anschreiben-koma-lebenslauf-moderncv-t10684.html)
 
 
 
