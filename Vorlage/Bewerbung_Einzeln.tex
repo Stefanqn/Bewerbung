@@ -4,6 +4,7 @@
 
 \input{../Bsp-Latex/mm.tex}
 
+
 \newcommand* \priv {../Priv-Bin/}
 \newcommand* \pub {../Bsp-Bin/}
 
@@ -18,12 +19,16 @@
 \begin{document}
 
 \IfFileExists{\anschreiben}{
-	\includepdf[pages=-, addtotoc={1, pageRef, 0,Anschreiben,anschreiben}]{\anschreiben}
+	%\includepdf[pages=-, addtotoc={1, pageRef, 0,Anschreiben,anschreiben}]{\anschreiben}
+	\bookmark[page=\thepage,level=0]{Anschreiben}
+	\includepdf[pages=-]{\anschreiben}
 }{\Huge kein Anschreiben}
 \IfFileExists{\lebenslauf}{
-	\includepdf[pages=-, addtotoc={1, pageRef, 0,Lebenslauf,lebenslauf}]{\lebenslauf}
+	%\includepdf[pages=-, addtotoc={1, pageRef, 0,Lebenslauf,lebenslauf}]{\lebenslauf}
+	\bookmark[page=\thepage,level=0]{Lebenslauf}
+	\includepdf[pages=-]{cvGen}
 }{\Huge kein CV}
 
 \input{../Bsp-Latex/Inhalt-Anlagen.tex}
-%\input{../Priv-Latex/Inhalt-Anlagen.tex}
+
 \end{document}

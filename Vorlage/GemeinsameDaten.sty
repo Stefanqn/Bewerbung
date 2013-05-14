@@ -21,7 +21,7 @@
 \newcommand*  \foto {}
 \newcommand*  \fotoHoehe {4cm}
 \newcommand*  \fotoRahmen {1pt}
-\newcommand* \name {\vorname \ \nachname}
+\newcommand* \meinName {\vorname \ \nachname}
 
 % ============ Config ============
 \AtEndPreamble{
@@ -40,11 +40,11 @@
     %pdfmenubar=true,        % show Acrobats menu?
     pdffitwindow=true,     % window fit to page when opened
     pdfstartview={FitH},    % fits the FitV/FitH of the page to the window
-    pdftitle={Bewerbung - \name},    % title
-    pdfauthor={\name},     % author
+    pdftitle={Bewerbung - \meinName},    % title
+    pdfauthor={\meinName},     % author
     pdfsubject={Bewerbung},   % subject of the document
-    pdfcreator={\name},   % creator of the document
-    pdfproducer={\name}, % producer of the document
+    pdfcreator={\meinName},   % creator of the document
+    pdfproducer={\meinName}, % producer of the document
     pdfkeywords={Bewerbung} {\vorname} {\nachname}, % list of keywords
     pdfnewwindow=true,      % links in new window
     colorlinks=false,       % false: boxed links; true: colored links
@@ -65,7 +65,7 @@
 \def \festnetzNr #1{\renewcommand* \festnetzNr {#1}}
 \def \faxNr #1{\renewcommand* \faxNr {#1}}
 \def \myEmail #1{\renewcommand* \myEmail {\href{mailto:#1}{#1}}}
-\def \unterschrift[#1][#2]#3 {\renewcommand \sig {\includegraphics[scale=#1]{#3} {#2 \scriptsize \vorname \ \nachname}}}
+\def \unterschrift[#1][#2]#3 {\renewcommand \sig {\hspace*{7mm}\includegraphics[scale=#1]{#3} {#2 \scriptsize \vorname \ \nachname}}}
 \def \foto[#1][#2]#3 {\renewcommand* \foto {#3} \renewcommand* \fotoHoehe {#1} \renewcommand* \fotoRahmen {#2}}
 
 %\newcommand* xxxxxxx {}  
