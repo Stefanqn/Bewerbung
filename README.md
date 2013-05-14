@@ -14,7 +14,11 @@ Latex Bewerbungsvorlage
 ```Inhalt-Anlagen.tex``` Beispiel Anlagen  
 ```Inhalt-Anschreiben.tex``` Beispiel Anschreiben  
 ```Inhalt-CV.tex``` Beispiel Lebenslauf  
-```mm.tex``` Max Mustermanns persönliche Daten  
+```mm.tex``` Max Mustermanns persönliche Daten sowie der Pfad des build Verzeichnisses 
+
+Diskussion
+----------
+[a link](http://www.golatex.de/bewerbungsvorlage-anschreiben-koma-lebenslauf-moderncv-t10684.html)
 
 
 
