@@ -112,15 +112,28 @@
 \newcommand* \datumsZellenBreite {10.5mm}
 \newcommand* \datumsZifferMonatsAbstand{-2.9mm}
 
-\newcommand \zeitspanne[4]{%
-	{\parbox[t]{\datumsZellenBreite}{\centering{#2\baselineskip=\datumsZifferMonatsAbstand\newline\par\vspace{\datumsZifferMonatsAbstand}\tiny{\strut#1}}}}\hspace{-0.4mm}{%
-	%\raisebox{-0.35mm}
+\newcommand* \bisTxt [1]{{\parbox[t]{\datumsZellenBreite}{\centering{#1}}}}
+
+\newcommand \vonBis[2]{%
+	#1 %extra space
+	\hspace{-0.4mm}%
+	{%raisebox{-0.35mm}
 	{\color{color1}--}}\hspace{-0.2mm}%
-	{\parbox[t]{\datumsZellenBreite}{\centering{#4\baselineskip=\datumsZifferMonatsAbstand\newline\par\vspace{\datumsZifferMonatsAbstand}\tiny{\strut#3}}}}%
+	\ #2%
+}
+\newcommand \zeitspanne[4]{%
+	\vonBis{%
+		\schickesDatum{#1}{#2}%
+	}{%
+		\schickesDatum{#3}{#4}%
+	}%
 }
 
+\newcommand \schickesDatum[2]{%
+	{\parbox[t]{\datumsZellenBreite}{\centering{#2\baselineskip=\datumsZifferMonatsAbstand\newline\par\vspace{\datumsZifferMonatsAbstand}\tiny{\strut#1}}}}%
+}
 
-
+\def \von[#1.#2]bis#3{\vonBis{\schickesDatum{\monthname[#1]}{#2}}{\small #3}}
 \def \zeit[#1.#2-#3.#4]{\zeitspanne{\monthname[#1]}{#2}{\monthname[#3]}{#4}}
 \def \zeitB [#1.#2-#3.#4]{ #1.#2--#3.#4}
 % ------------ Funktionen Priv ------------

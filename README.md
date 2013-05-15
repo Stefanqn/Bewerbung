@@ -1,6 +1,6 @@
 Bewerbung
 =========
-Latex Bewerbungsvorlage
+Latex Bewerbungsvorlage konform zu DIN5008. Siehe [PDF Beispiel](https://github.com/Stefanqn/Bewerbung/blob/master/Fertiges-PDF/Bewerbung_Komplett.pdf?raw=true)
 
 \Vorlage
 --------
