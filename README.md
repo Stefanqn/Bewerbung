@@ -20,5 +20,12 @@ Diskussion
 ----------
 [Golatex Forum](http://www.golatex.de/bewerbungsvorlage-anschreiben-koma-lebenslauf-moderncv-t10684.html)
 
+ToDos
+-----
+Da das meine erste Latexvorlage ist, hat sie sicher nicht die Qualität, die ihr sonst gewohnt seid. Falls jemand sie verbessern oder erweitern will nehm ich gern Patches oder Code an. Folgende Punkte sind mir aktuell ein Dorn im Auge:
+*		modernCV Abhängigkeit: lösen --> ein Compilerlauf --> gescheite PDF Refs, wie z.B. Lebenslauf Sektionen im InhaltsVZ 
+*		Allgemein Entrümpeln ;)
+*		Unterschiedliche Schriftgrößen und Zeilenabstand unterstützten: alles außer 12pt versaut aktuell das Layout
+*		Hübsche Tel.,etc Symbole finden, als Vectorgraphic unter offener Lizenz.
 
 

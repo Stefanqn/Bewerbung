@@ -112,6 +112,8 @@
 \newcommand* \datumsZellenBreite {10.5mm}
 \newcommand* \datumsZifferMonatsAbstand{-2.9mm}
 
+%\newcommand* \bisDatum [2] {#1 }
+
 \newcommand* \bisTxt [1]{{\parbox[t]{\datumsZellenBreite}{\centering{#1}}}}
 
 \newcommand \vonBis[2]{%
@@ -132,6 +134,8 @@
 \newcommand \schickesDatum[2]{%
 	{\parbox[t]{\datumsZellenBreite}{\centering{#2\baselineskip=\datumsZifferMonatsAbstand\newline\par\vspace{\datumsZifferMonatsAbstand}\tiny{\strut#1}}}}%
 }
+
+\def \seit[#1.#2]#3{#3 \schickesDatum{\monthname[#1]}{#2}}
 
 \def \von[#1.#2]bis#3{\vonBis{\schickesDatum{\monthname[#1]}{#2}}{\small #3}}
 \def \zeit[#1.#2-#3.#4]{\zeitspanne{\monthname[#1]}{#2}{\monthname[#3]}{#4}}
