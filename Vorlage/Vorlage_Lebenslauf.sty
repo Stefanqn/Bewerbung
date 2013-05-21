@@ -1,5 +1,6 @@
 \ProvidesPackage{Vorlage_Lebenslauf}
 
+
 % ============ Packete ============
 \RequirePackage{GemeinsameDaten}
 %\RequirePackage[utf8]{inputenc}
@@ -9,7 +10,7 @@
 \RequirePackage{datetime,setspace}
 
 
-
+\newtoggle{keinFoto}
 
 % ============ modernCV Optionen ============
 \renewcommand* \pdfpagemode {UseOutlines}%open pdf with bookmark tab
@@ -48,10 +49,11 @@
 
 \newcommand \picLine {\makebox[\the\textwidth+5mm][r]{\pic}}% \the\textwidth+5mm
 \newcommand* \titel [1] {%
+	\iftoggle{keinFoto}{\vspace*{1mm}\centering}{%
 	\newlength{\picLH}%
 	\settoheight{\picLH}{\picLine}%
 	\picLine%	Value = \the\picLH
-	\vspace{-\picLH}\vspace*{4mm}
+	\vspace{-\picLH}\vspace*{4mm}}
 	{\color{color1} \huge  #1}
 	\vspace*{2.5mm}
 }

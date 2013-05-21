@@ -27,5 +27,6 @@ Da das meine erste Latexvorlage ist, hat sie sicher nicht die Qualität, die ihr 
 *		Allgemein Entrümpeln ;)
 *		Unterschiedliche Schriftgrößen und Zeilenabstand unterstützten: alles außer 12pt versaut aktuell das Layout
 *		Hübsche Tel.,etc Symbole finden, als Vectorgraphic unter offener Lizenz.
+*		Layout einer 2ten Anschreibenseite (Seitenzahl, Fusslinie)
 
 
