@@ -119,8 +119,9 @@
 			\color{familynamecolor}\nachname% Farbe Nachname übernehmen%
 }}
 
-\newcommand \kopfZeile[1]{%
-	\parbox[b]{\textwidth}{\raggedleft
+\newcommand{\kopfZeile}[1]{%
+	\parbox[b]{\textwidth}{%
+		\raggedleft
 		{\kopfName}%
 		{ \\[-.4\baselineskip]%
 	{{\parbox{\textwidth}{\color{rulecolor}\rule{\textwidth}{1.5pt}}}}
@@ -128,13 +129,33 @@
 	#1}
 }}
 
+% symbols -->>
+\@ifclassloaded{moderncv}{}{
+	\newcommand*{\marvosymbol}[1]{}
+	\newcommand*{\mobilesymbol}{}
+	\newcommand*{\phonesymbol}{}
+	\newcommand*{\faxsymbol}{}
+	\newcommand*{\emailsymbol}{}
+	\newcommand*{\homepagesymbol}{}
+}
+
+
+\renewcommand*{\marvosymbol}[1]{{\fontfamily{mvs}\fontencoding{U}\fontseries{m}\fontshape{n}\selectfont\char#1}}
+\renewcommand*{\mobilesymbol}{\marvosymbol{72}~}
+\renewcommand*{\phonesymbol}{\marvosymbol{84}~}
+\renewcommand*{\faxsymbol}{\marvosymbol{118}~}
+\renewcommand*{\emailsymbol}{\marvosymbol{66}~}
+\renewcommand*{\homepagesymbol}{{\Large\marvosymbol{205}}~}
+% <<-- symbols
+
+
 \newcommand \anschriftKopfZeile {%
 	\kopfZeile{%
 		\addresse%
-		\if\relax\mobilNr\relax\else 	\\\Mobilefone \mobilNr\fi%
-		\if\relax\festnetzNr\relax\else \\\Telefon \festnetzNr\fi%
-		\if\relax\faxNr\relax\else\\\Faxmachine \faxNr\fi%
-		\\\Letter \myEmail% \if\relax\myEmail\relax\else\fi%
+		\if\relax\mobilNr\relax\else 	\\\mobilesymbol \mobilNr\fi%
+		\if\relax\festnetzNr\relax\else \\\phonesymbol \festnetzNr\fi%
+		\if\relax\faxNr\relax\else\\\faxsymbol \faxNr\fi%
+		\\\emailsymbol \myEmail% \if\relax\myEmail\relax\else\fi%
 		}%
 }
 
