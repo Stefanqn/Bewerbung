@@ -22,6 +22,7 @@
 \newcommand*  \fotoHoehe {4cm}
 \newcommand*  \fotoRahmen {1pt}
 \newcommand* \meinName {\vorname \ \nachname}
+\newcommand* \addresse {\strasse\\\PLZ \ \wohnort}
 
 % ============ Config ============
 \AtEndPreamble{
@@ -56,15 +57,15 @@
 
 
 %% ------------- Priv Data Helpers -------------
-\def \vorname #1{\renewcommand* \vorname {#1}}
-\def \nachname #1{\renewcommand* \nachname {#1}}
-\def \strasse #1{\renewcommand* \strasse {#1}}
-\def \PLZ #1{\renewcommand* \PLZ {#1}}
-\def \wohnort #1{\renewcommand* \wohnort {#1}}
-\def \mobilNr #1{\renewcommand* \mobilNr {#1}}
-\def \festnetzNr #1{\renewcommand* \festnetzNr {#1}}
-\def \faxNr #1{\renewcommand* \faxNr {#1}}
-\def \myEmail #1{\renewcommand* \myEmail {\href{mailto:#1}{#1}}}
+\def \meinVorname #1{\renewcommand* \vorname {#1}}
+\def \meinNachname #1{\renewcommand* \nachname {#1}}
+\def \meineStrasse #1{\renewcommand* \strasse {#1}}
+\def \meinePLZ #1{\renewcommand* \PLZ {#1}}
+\def \meinWohnort #1{\renewcommand* \wohnort {#1}}
+\def \meineMobilNr #1{\renewcommand* \mobilNr {#1}}
+\def \meineFestnetzNr #1{\renewcommand* \festnetzNr {#1}}
+\def \meineFaxNr #1{\renewcommand* \faxNr {#1}}
+\def \meineEmail #1{\renewcommand* \myEmail {\href{mailto:#1}{#1}}}
 \def \unterschrift[#1][#2]#3 {\renewcommand \sig {\hspace*{7mm}\includegraphics[scale=#1]{#3} {#2 \scriptsize \vorname \ \nachname}}}
 \def \foto[#1][#2]#3 {\renewcommand* \foto {#3} \renewcommand* \fotoHoehe {#1} \renewcommand* \fotoRahmen {#2}}
 
@@ -126,6 +127,16 @@
 	\strut\ignorespaces%
 	#1}
 }}
+
+\newcommand \anschriftKopfZeile {%
+	\kopfZeile{%
+		\addresse%
+		\if\relax\mobilNr\relax\else 	\\\Mobilefone \mobilNr\fi%
+		\if\relax\festnetzNr\relax\else \\\Telefon \festnetzNr\fi%
+		\if\relax\faxNr\relax\else\\\Faxmachine \faxNr\fi%
+		\\\Letter \myEmail% \if\relax\myEmail\relax\else\fi%
+		}%
+}
 
 %% === Overfull boxes ==
 %% \overfullrule=0pt

@@ -9,8 +9,8 @@
 \RequirePackage[ngerman]{babel}% deutsch
 \RequirePackage{graphicx,
 	verbatim,% Kommentare
-	marvosym,% Tel. Symbole
 	calc}
+\RequirePackage{marvosym}	% Tel. Symbole
 	
 
 \RequirePackage{xcolor}
@@ -31,10 +31,10 @@
 	%,locfield=wide		% Breite des Feldes für die Absenderergänzung narrow | wide
 	%% S.182
 	,addrfield=true			% Anschrift mit Rücksendeadresse
-	,backaddress=plain		% Rücksendeadresse
-	,fromphone=true
-	,fromfax=true
-	,fromemail=true
+	,backaddress=off		% Rücksendeadresse, oder "plain"
+%	,fromphone=true
+%	,fromfax=false
+%	,fromemail=true
 	,fromurl=false
 	,refline=narrow
 	%,headsepline=on%%         Line below the page number
@@ -48,10 +48,12 @@
 %{\Neutral} }
 { $\bullet$ }}
 
-\setkomavar{fromaddress}{\strasse\\\PLZ \ \wohnort}
+\setkomavar{fromaddress}{\addresse}
 \newkomavar[Mobil]{mobilphone}
 \setkomavar{mobilphone}[]{\mobilNr}
 \setkomavar{fromphone}[]{\festnetzNr}
+
+
 \setkomavar{fromfax}[]{\faxNr}
 \setkomavar{fromemail}[]{\myEmail}
 \setkomavar{place}[BezeichnungPlace]{\wohnort}
@@ -68,14 +70,7 @@
 % ------------ Kopf ------------
 \@setplength{firstheadvpos}{19mm} %Anfang header
 \setkomavar{firsthead}{%
-	\kopfZeile{
-		\usekomafont{fromaddress}
-		\usekomavar{fromaddress}%
-		\\\Mobilefone \usekomavar*{mobilphone} \usekomavar{mobilphone}%
-		\\\Telefon \usekomavar*{fromphone} \usekomavar{fromphone}%
-		\\\Faxmachine \usekomavar*{fromfax} \usekomavar{fromfax}%
-		\\\Letter \usekomavar*{fromemail} \usekomavar{fromemail}%
-	\\}%
+	\anschriftKopfZeile%
 }	
 % ------------ Fuss ------------
 \setkomavar{firstfoot}{\fussLinie{}{0mm}}

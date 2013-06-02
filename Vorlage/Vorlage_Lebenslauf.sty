@@ -11,6 +11,7 @@
 
 
 \newtoggle{keinFoto}
+\newtoggle{lebenslaufTitelZentriert}
 
 % ============ modernCV Optionen ============
 \renewcommand* \pdfpagemode {UseOutlines}%open pdf with bookmark tab
@@ -48,14 +49,15 @@
 	 \framebox{\includegraphics[width=\@photowidth]{\@photo}}}
 
 \newcommand \picLine {\makebox[\the\textwidth+5mm][r]{\pic}}% \the\textwidth+5mm
+
 \newcommand* \titel [1] {%
-	\iftoggle{keinFoto}{\vspace*{1mm}\centering}{%
+	\iftoggle{keinFoto}{}{%
 	\newlength{\picLH}%
 	\settoheight{\picLH}{\picLine}%
-	\picLine%	Value = \the\picLH
-	\vspace{-\picLH}\vspace*{4mm}}
-	{\color{color1} \huge  #1}
-	\vspace*{2.5mm}
+	\picLine%
+	\vspace{-\picLH}}% 
+	\par\iftoggle{lebenslaufTitelZentriert}{\centering}{}
+	{\color{color1} \Huge  #1}
 }
 % ------------ Sections ------------
 \newlength \sectionSchriftHoehe

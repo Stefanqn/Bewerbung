@@ -1,9 +1,10 @@
 \laengsteStadt{Hamburg}
 %\toggletrue{keinFoto}
+%\toggletrue{lebenslaufTitelZentriert}
+%\chead{\anschriftKopfZeile}
 
 \emergencystretch=25pt\tolerance=800\hyphenpenalty=1000%\hbadness=10000\linepenalty=5000%\linepenalty=40\hyphenpenalty=80%\exhyphenpenalty=3000%
-\titel{\emph{Lebenslauf}}
-
+\titel{\vspace*{5mm}\emph{Lebenslauf}\vspace*{2mm}}
 
 \section{Persönliche Daten}
 \eintragK{Name}										{\nachname}
@@ -17,16 +18,7 @@
 \eintragK{Email}									{\myEmail}
 
 %\onehalfspacing\setlength\datumsVKorrektur{-1.2\baselineskip}
-%\begin{comment}
-\section{Schulausbildung}
-\eintragL{\zeit[09.1992-01.2000]}{Willi-Gymnasium}{}{Stadt}{}
-\eintragL{\zeit[02.2000-03.2001]}{Werner}{Abitur}{Stadt}{%
-	\begin{itemize}%
-	\item Abschluss: allgemeine Hochschulreife
-	\item Leistungskurse: ....
-	\end{itemize}}
-
-
+\begin{comment}
 \section{Hochschulstudium}
 \eintragL{\zeit[03.2002-03.2008]}{Fachhochschule }{Dipl.}{Stadt}{%
 	\begin{itemize}%
@@ -63,7 +55,14 @@
 	\end{itemize}
 	\end{itemize}
 }
-%\end{comment}
+
+\section{Schulbildung}
+\eintragL{\zeit[09.1992-01.2000]}{Willi-Gymnasium}{}{Stadt}{}
+\eintragL{\zeit[02.2000-03.2001]}{Werner}{Abitur}{Stadt}{%
+	\begin{itemize}%
+	\item Abschluss: allgemeine Hochschulreife
+	\item Leistungskurse: ....
+	\end{itemize}}
 
 \section{Berufliche Tätigkeiten}
 %\begin{comment}
@@ -123,7 +122,7 @@
 \end{tabu}
 }
 
-%\end{comment}
+\end{comment}
 \vspace{3\baselineskip}
 %\vfill
 \signature

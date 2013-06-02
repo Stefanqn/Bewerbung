@@ -1,6 +1,6 @@
 Bewerbung
 =========
-Latex Bewerbungsvorlage konform zu DIN5008. Siehe [PDF Beispiel](https://github.com/Stefanqn/Bewerbung/blob/master/Fertiges-PDF/Bewerbung_Komplett.pdf?raw=true)
+Latex Bewerbungsvorlage konform zu DIN5008. Siehe [PDF Beispiel](https://github.com/Stefanqn/Bewerbung/blob/master/Fertiges-PDF/Bewerbung_Komplett.pdf?raw=true). Falls jemand dazu beitragen will die Vorlage zu verbessern ist das herzlich willkommen, meine gröbsten Schnitzer findet ihr unter ToDo.
 
 \Vorlage
 --------
@@ -22,7 +22,7 @@ Diskussion
 
 ToDos
 -----
-Da das meine erste Latexvorlage ist, hat sie sicher nicht die Qualität, die ihr sonst gewohnt seid. Falls jemand sie verbessern oder erweitern will nehm ich gern Patches oder Code an. Folgende Punkte sind mir aktuell ein Dorn im Auge:
+Da das meine erste Latexvorlage ist, hat sie sicher nicht die Qualität, die ihr sonst gewohnt seid. Falls jemand etwas beitragen will nehm' ich gern Patches oder Code an. Folgende Punkte sind mir aktuell ein Dorn im Auge:
 *		modernCV Abhängigkeit: lösen --> ein Compilerlauf --> gescheite PDF Refs, wie z.B. Lebenslauf Sektionen im InhaltsVZ 
 *		Allgemein Entrümpeln ;)
 *		Unterschiedliche Schriftgrößen und Zeilenabstand unterstützten: alles außer 12pt versaut aktuell das Layout
