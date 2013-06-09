@@ -1,6 +1,7 @@
 Bewerbung
 =========
-Latex Bewerbungsvorlage konform zu DIN5008. Siehe [PDF Beispiel](https://github.com/Stefanqn/Bewerbung/blob/master/Fertiges-PDF/Bewerbung_Komplett.pdf?raw=true). Falls jemand dazu beitragen will die Vorlage zu verbessern ist das herzlich willkommen, meine gröbsten Schnitzer findet ihr unter ToDo.
+Latex Bewerbungsvorlage konform zu DIN5008. Siehe [PDF Beispiel](https://github.com/Stefanqn/Bewerbung/blob/master/Fertiges-PDF/Bewerbung_Komplett.pdf?raw=true). [Bier-](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MZEBQZGWBTVVG)
+ oder noch besser Quellcodespenden sind herzlich willkommen ;)
 
 \Vorlage
 --------
