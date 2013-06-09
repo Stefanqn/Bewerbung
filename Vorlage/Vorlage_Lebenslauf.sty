@@ -235,7 +235,20 @@
 \par\addvspace{#1}}
 
 %\eintrag{Dauer}{Firma}{JobTitel}{Ort}{Beschreibung ..... mehrzeilig}	- mit Aufzaehlungen
-\newcommand* \eintragL [5]{%
+\newcommand \eintragL [5]{\eintragLDrei{#1}{#2}{#3}{#4}{#5}}
+	
+\newcommand* \eintragLZwei [5]{%
+	\begin{tabu} to \textwidth {@{} p{\hintscolumnwidth} @{\hspace{\separatorcolumnwidth}}%
+	p{\maincolumnwidth}}{  
+		\raggedleft\hintstyle{#1} &{\mdseries{#2}}%
+		\if\relax\detokenize{#3}\relax\else{\textit{ -- #3}}\fi
+		\textit{ -- #4}%
+		\if\relax\detokenize{#5}\relax
+		\else\eintragExtraZeile{#5}\fi%
+	}\end{tabu}%
+  \par\addvspace{\eintragsAbstand}}
+	
+\newcommand* \eintragLDrei [5]{%
 	\begin{tabu} to \textwidth {@{} p{\hintscolumnwidth} @{\hspace{\separatorcolumnwidth}}%
 	p{\maincolumnwidth-\stadtBreite-1em}@{\hspace{1em}} p{\stadtBreite} }{  
 		\raggedleft\hintstyle{#1} &{\mdseries{#2}}%
@@ -245,6 +258,7 @@
 		\else\eintragExtraZeile{#5}\fi%
 	}\end{tabu}%
   \par\addvspace{\eintragsAbstand}}
+
 
 \newcommand* \eintragExtraZeile[1]{\\ & \vspace{-5mm}{\begin{minipage}[t]{\linewidth}#1\end{minipage}}}
 
