@@ -66,6 +66,7 @@
 *.tdo
 >>>>>>> .theirs
 Priv-Latex/
+Priv-Latex-Static/
 Priv-Bin/
 Priv-Fertige/
 Spielwiese/
