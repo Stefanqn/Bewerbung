@@ -130,7 +130,7 @@
 }}
 
 
-\@ifundefined{marvosymbol}{\newcommand*{\marvosymbol}[1]{}}{} 
+\@ifundefined{myMarvosymbol}{\newcommand*{\myMarvosymbol}[1]{}}{} 
 \@ifundefined{mobilesymbol}{\newcommand*{\mobilesymbol}{}}{}
 \@ifundefined{phonesymbol}{\newcommand*{\phonesymbol}{}}{}
 \@ifundefined{meinFaxSymbol}{\newcommand*{\meinFaxSymbol}{}}{}
@@ -139,12 +139,12 @@
 
 
 
-\renewcommand*{\marvosymbol}[1]{{\fontfamily{mvs}\fontencoding{U}\fontseries{m}\fontshape{n}\selectfont\char#1}}
-\renewcommand*{\mobilesymbol}{\marvosymbol{72}~}
-\renewcommand*{\phonesymbol}{\marvosymbol{84}~}
-\renewcommand*{\meinFaxSymbol}{\marvosymbol{118}~}
-\renewcommand*{\emailsymbol}{\marvosymbol{66}~}
-\renewcommand*{\homepagesymbol}{{\Large\marvosymbol{205}}~}
+\renewcommand*{\myMarvosymbol}[1]{{\fontfamily{mvs}\fontencoding{U}\fontseries{m}\fontshape{n}\selectfont\char#1}}
+\renewcommand*{\mobilesymbol}{\myMarvosymbol{72}~}
+\renewcommand*{\phonesymbol}{\myMarvosymbol{84}~}
+\renewcommand*{\meinFaxSymbol}{\myMarvosymbol{118}~}
+\renewcommand*{\emailsymbol}{\myMarvosymbol{66}~}
+\renewcommand*{\homepagesymbol}{{\Large\myMarvosymbol{205}}~}
 % <<-- symbols
 
 
