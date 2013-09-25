@@ -2,6 +2,11 @@ Bewerbung
 =========
 Latex Bewerbungsvorlage konform zu DIN5008. Siehe [PDF Beispiel](https://github.com/Stefanqn/Bewerbung/blob/master/Fertiges-PDF/Bewerbung_Komplett.pdf?raw=true). [Bier-](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MZEBQZGWBTVVG)
  oder noch besser Quellcodespenden sind herzlich willkommen ;)
+ 
+ Diskussion
+----------
+[Google Group](https://groups.google.com/forum/#!forum/latex-bewerbungsvorlage)
+[Golatex Forum (alt)](http://www.golatex.de/bewerbungsvorlage-anschreiben-koma-lebenslauf-moderncv-t10684.html)
 
 \Vorlage
 --------
@@ -16,10 +21,6 @@ Latex Bewerbungsvorlage konform zu DIN5008. Siehe [PDF Beispiel](https://github.
 ```Inhalt-Anschreiben.tex``` Beispiel Anschreiben  
 ```Inhalt-CV.tex``` Beispiel Lebenslauf  
 ```mm.tex``` Max Mustermanns persönliche Daten sowie der Pfad des build Verzeichnisses 
-
-Diskussion
-----------
-[Golatex Forum](http://www.golatex.de/bewerbungsvorlage-anschreiben-koma-lebenslauf-moderncv-t10684.html)
 
 ToDos
 -----
