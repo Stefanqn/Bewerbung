@@ -5,8 +5,7 @@ Latex Bewerbungsvorlage konform zu DIN5008. Siehe [PDF Beispiel](https://github.
  
  Diskussion
 ----------
-[Google Group](https://groups.google.com/forum/#!forum/latex-bewerbungsvorlage)
-
+[Google Group](https://groups.google.com/forum/#!forum/latex-bewerbungsvorlage)   
 [Golatex Forum (alt)](http://www.golatex.de/bewerbungsvorlage-anschreiben-koma-lebenslauf-moderncv-t10684.html)
 
 \Vorlage
