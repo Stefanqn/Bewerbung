@@ -51,6 +51,7 @@ So funktioniert das (bei mir, isnok)
 ToDos (isnok version)
 ---------------------
 
+* Aufraeumen/Dokumentieren der LaTeX Makros (\mein*, \sig, ...)
 * Das erzeugen von (Neben-) Tex/Pdf Dateien aus dem Main-Dokument via `\write18` fuehrt leider dazu, dass latexmk in einer Schleife landet, wenn es mit `--pvc` gestartet wird (continous preview). Seehr schade, denn damit laesst sich wunderbar LaTeX editieren.
 * Ordnerstruktur nochmal schoen machen. Das aktuelle funktioniert (immerhin :), krankt aber noch an Frickelei mit Latex-Berechtigungen in Sub-/Parent-Ordnern.
 * Ein kleiner toolkit aus meinem alten Bewerbungs-Repo moechte noch hier hinein. Es geht um ein paar Shell-Scripte, die aus Bildern (Scans) pdfs (in DIN A4) machen und so Sachen.
