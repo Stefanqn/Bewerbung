@@ -1,3 +1,16 @@
+\documentclass[DINmtext]{scrlttr2}
+\usepackage[utf8x]{inputenc}
+\usepackage{../Style/Vorlage_Anschreiben}
+
+%%%%%
+% Filename should not contain blanks
+\newcommand* \buildDir {./}
+\newcommand* \meinDir {./Bewerber/}
+\input{\meinDir Allgemein.tex}
+%%%%%
+
+\farbe{blue}
+\begin{document}
 %\makeatletter
 %%\@setplength{subjectaftervskip}{\baselineskip+5pt} % 29pt default %Abstand Betreff <-> Anrede
 %%\@addtoplength{refvpos}{-8mm} %Textbereich 8mm nach oben
@@ -30,3 +43,4 @@ Mit freundlichen Grüßen\\\sig%
 \encl{}
 %\vspace*{2mm}Anlagen %spart Platz
 \end{letter}
+\end{document}

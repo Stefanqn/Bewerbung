@@ -1,0 +1,173 @@
+\ProvidesPackage{GemeinsameDaten}
+
+\RequirePackage[dvipsnames]{xcolor}
+\RequirePackage{etoolbox}
+%\RequirePackage{tabu} %crashes CV
+\RequirePackage[pdftex,unicode]{hyperref}
+\RequirePackage{bookmark}
+
+
+%% ============= Priv Data =============
+\newcommand* \vorname {}
+\newcommand* \nachname {}
+\newcommand* \ganzerName {\vorname \ \nachname}
+\newcommand* \geburt {}
+\newcommand* \geburtsort {}
+\newcommand* \nation {}
+\newcommand* \strasse {}
+\newcommand* \PLZ {}
+\newcommand* \wohnort {}
+\newcommand* \mobilNr {}
+\newcommand* \festnetzNr {}
+\newcommand* \faxNr {}
+\newcommand* \myEmail {}
+\newcommand* \sig{\ganzerName}
+\newcommand* \foto {}
+\newcommand* \fotoHoehe {4cm}
+\newcommand* \fotoRahmen {1pt}
+\newcommand* \addresse {\strasse\\\PLZ \ \wohnort}
+
+\def \setFoto[#1][#2]#3 {\renewcommand* \foto {#3} \renewcommand* \fotoHoehe {#1} \renewcommand* \fotoRahmen {#2}}
+\def \setUnterschrift[#1][#2]#3 {\renewcommand \sig {\hspace*{7mm}\includegraphics[scale=#1]{#3} {#2 \scriptsize \vorname \ \nachname}}}
+
+% ============ Config ============
+\AtEndPreamble{
+    \hypersetup{%
+        hidelinks,
+    %bookmarks=true,         % show bookmarks bar?
+        pdfdisplaydoctitle=true,
+        bookmarksopen=true,
+        pdfpagelayout=OneColumn,% SinglePage / OneColumn 
+        % pdfpagetransition={Dissolve},
+        % Blinds     /Dm | Box     /M | Dissolve | Glitter     /Di | Split     /Dm /M | Wipe     /Di 
+        % /Di= direction  in degrees, generally in 90 steps | /Dm horizontal (/H) or vertical (/V) | 
+        % /M is motion, in (/I) or out (/O).
+    unicode=true,          % non-Latin characters in Acrobats bookmarks
+    %pdftoolbar=true,        % show Acrobats toolbar?
+    %pdfmenubar=true,        % show Acrobats menu?
+    pdffitwindow=true,     % window fit to page when opened
+    pdfstartview={FitH},    % fits the FitV/FitH of the page to the window
+    pdftitle={Bewerbung - \ganzerName},    % title
+    pdfauthor={\ganzerName},     % author
+    pdfsubject={Bewerbung},   % subject of the document
+    pdfcreator={\ganzerName},   % creator of the document
+    pdfproducer={\ganzerName}, % producer of the document
+    pdfkeywords={Bewerbung} {\vorname} {\nachname}, % list of keywords
+    pdfnewwindow=true,      % links in new window
+    colorlinks=false,       % false: boxed links; true: colored links
+    linkcolor=blue,          % color of internal links (change box color with linkbordercolor)
+    citecolor=blue,        % color of links to bibliography
+    filecolor=blue,      % color of file links
+    urlcolor=blue           % color of external links
+}}
+
+
+%% ------------- Priv Data Helpers -------------
+\def \meinVorname #1{\renewcommand* \vorname {#1}}
+\def \meinNachname #1{\renewcommand* \nachname {#1}}
+\def \meinGeburtstag #1{\renewcommand* \geburt {#1}}
+\def \meinGeburtsort #1{\renewcommand* \geburtsort {#1}}
+\def \meineNationalitaet #1{\renewcommand* \nation {#1}}
+\def \meineStrasse #1{\renewcommand* \strasse {#1}}
+\def \meinePLZ #1{\renewcommand* \PLZ {#1}}
+\def \meinWohnort #1{\renewcommand* \wohnort {#1}}
+\def \meineMobilNr #1{\renewcommand* \mobilNr {#1}}
+\def \meineFestnetzNr #1{\renewcommand* \festnetzNr {#1}}
+\def \meineFaxNr #1{\renewcommand* \faxNr {#1}}
+\def \meineEmail #1{\renewcommand* \myEmail {\href{mailto:#1}{#1}}}
+\def \meinPhoto #1{\setFoto[4cm][0.4pt]{\meinDir #1}}
+\def \meineUnterschrift #1{\setUnterschrift[0.15][\hspace*{-30mm}]{\meinDir #1}}
+
+%\newcommand* xxxxxxx {}
+%\def xxxxxxx #1{\renewcommand* xxxxxxx {#1}}
+
+
+%% ============= Farben =============
+% loads a color scheme
+\newcommand*{\farbe}[1]{
+  \RequirePackage{moderncvcolor#1}} % imports {color0}{color1}{color2}
+\AtEndPreamble{
+    \definecolor{firstnamecolor}{rgb}{0.65,0.65,0.65}
+    \definecolor{familynamecolor}{rgb}{0.45,0.45,0.45}
+    \definecolor{footersymbolcolor}{rgb}{0.30,0.65,0.15}
+    \definecolor{addresscolor}{rgb}{0.35,0.35,0.35} %grau
+    %\definecolor{rulecolor}{rgb}{0.20,0.40,0.85}
+    %\colorlet{firstnamecolor}{color1!50}
+    %\colorlet{familynamecolor}{color1!100}
+    \colorlet{rulecolor}{color1}
+}
+
+%% ============= Font  =============
+\AtEndPreamble{
+    \RequirePackage[T1]{fontenc}
+    
+    \usepackage{amssymb} % square 
+    %\usepackage{pxfonts}
+    %\usepackage{txfonts}
+    %\RequirePackage{lmodern}
+    \usepackage[default]{opensans}
+    %\usepackage[]{helvet}
+    
+    %\renewcommand*{\familydefault}{\rmdefault}% nutze serifenlose Schrift
+    \renewcommand*{\familydefault}{\sfdefault}% nutze serifenlose Schrift
+    \renewcommand*{\seriesdefault}{l}
+    %\renewcommand*{\seriesdefault}{eb}% Open Sans: l, cl, m, sb, b (bx), eb
+    %\renewcommand*{\shapedefault}{\sfdefault}}% Open Sans: n, it (sl), sc, scit (scsl)
+    \selectfont
+}
+
+%% ============= Abstaende  =============
+\newcommand* \fussAbstand {22.25mm}
+\newcommand \fussLinie[2]{\vbox to 0pt{\color{rulecolor}#1\rule{\textwidth+#2}{0.7pt}}}
+
+%% ============= Funktionen =============
+\newcommand \kopfName {\strut\ignorespaces %
+        %\large \color{firstnamecolor} Dipl. Inf. (FH) \& M.Sc. 
+        \huge{%
+            \color{familynamecolor}\vorname\ % Farbe Vorname übernehmen
+            \color{familynamecolor}\nachname% Farbe Nachname übernehmen%
+}}
+
+\newcommand{\kopfZeile}[1]{%
+    \parbox[b]{\textwidth}{%
+        \raggedleft
+        {\kopfName}%
+        { \\[-.4\baselineskip]%
+    {{\parbox{\textwidth}{\color{rulecolor}\rule{\textwidth}{1.5pt}}}}
+    \strut\ignorespaces%
+    #1}
+}}
+
+
+\@ifundefined{myMarvosymbol}{\newcommand*{\myMarvosymbol}[1]{}}{} 
+\@ifundefined{mobilesymbol}{\newcommand*{\mobilesymbol}{}}{}
+\@ifundefined{phonesymbol}{\newcommand*{\phonesymbol}{}}{}
+\@ifundefined{meinFaxSymbol}{\newcommand*{\meinFaxSymbol}{}}{}
+\@ifundefined{emailsymbol}{\newcommand*{\emailsymbol}{}}{}
+\@ifundefined{homepagesymbol}{\newcommand*{\homepagesymbol}{}}{}
+
+
+
+\renewcommand*{\myMarvosymbol}[1]{{\fontfamily{mvs}\fontencoding{U}\fontseries{m}\fontshape{n}\selectfont\char#1}}
+\renewcommand*{\mobilesymbol}{\myMarvosymbol{72}~}
+\renewcommand*{\phonesymbol}{\myMarvosymbol{84}~}
+\renewcommand*{\meinFaxSymbol}{\myMarvosymbol{118}~}
+\renewcommand*{\emailsymbol}{\myMarvosymbol{66}~}
+\renewcommand*{\homepagesymbol}{{\Large\myMarvosymbol{205}}~}
+% <<-- symbols
+
+
+\newcommand \anschriftKopfZeile {%
+    \kopfZeile{%
+        \addresse%
+        \if\relax\mobilNr\relax\else     \\\mobilesymbol \mobilNr\fi%
+        \if\relax\festnetzNr\relax\else \\\phonesymbol \festnetzNr\fi%
+        \if\relax\faxNr\relax\else\\\meinFaxSymbol \faxNr\fi%
+        \\\emailsymbol \myEmail% \if\relax\myEmail\relax\else\fi%
+        }%
+}
+
+%% === Overfull boxes ==
+%% \overfullrule=0pt
+%\linebreak
+%http://www.tex.ac.uk/cgi-bin/texfaq2html?label=overfull
