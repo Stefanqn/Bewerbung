@@ -40,8 +40,8 @@ Changelog von isnok
 * Dann habe ich noch die .sty Dateien verschoben, aber die Ordnerstruktur ist noch nicht auf Anhieb einleuchtend.
 * Bin dabei, das ganze (fuer Linux) mit etwas 'Workflow' zu versehen, da man meist mehr als eine Bewerbung schreibt.
 
-So funktioniert das (bei mir, isnok)
-------------------------------------
+So funktioniert das (unter Linux)
+---------------------------------
 
 * Ich navigiere mich in der shell in den Ordner `Tex` und gebe dort `./neu.sh EineNeueFirma` ein.
 * Daraufhin kopiert mir das script die Vorlage in den Ordner `Tex/EineNeueFirma`. Die Vorlage enthaelt `Anschreiben.tex` und `Bewerbung.tex` (Anschreiben+Lebenslauf+Anlagen). Der Bewerber-Link zeigt auf mein directory, dadurch werden Lebenslauf und Anlagen erstmal von dort uebernommen.
