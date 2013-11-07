@@ -1,5 +1,5 @@
 @ECHO OFF
-SET file=Bewerbung_Komplett
+SET file=Bewerbung
 SET build=build
 SET gs="C:\Program Files\gs\gs9.07\bin\gswin64c.exe"
 SET tk="pdftk.exe"

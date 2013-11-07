@@ -32,3 +32,16 @@ Da das meine erste Latexvorlage ist, hat sie sicher nicht die Qualität, die ihr 
 *		Layout einer 2ten Anschreibenseite (Seitenzahl, Fusslinie)
 
 
+Changelog von isnok
+-------------------
+
+* Hab aufgeraeumt.
+
+
+ToDos (isnok version)
+---------------------
+
+* Aufraeumen/Dokumentieren der LaTeX Makros (\mein*, \sig, ...)
+* Das erzeugen von (Neben-) Tex/Pdf Dateien aus dem Main-Dokument via `\write18` fuehrt dazu, dass latexmk in einer Schleife laeuft, wenn es mit `--pvc` (continous preview) gestartet wird. Schade, denn damit laesst sich wunderbar LaTeX editieren.
+* Ein kleiner toolkit aus meinem alten Bewerbungs-Repo koenne noch hier hinein. Ein paar Shell-Scripte, die aus Bildern (Scans) pdfs (in DIN A4) machen und so.
+

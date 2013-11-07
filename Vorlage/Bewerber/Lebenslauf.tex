@@ -1,3 +1,30 @@
+\PassOptionsToPackage{dvipsnames}{xcolor}
+\documentclass[12pt,a4paper,sans]{moderncv}
+\usepackage{./Style/Vorlage_Lebenslauf}
+\usepackage[utf8x]{inputenc}
+\PrerenderUnicode{ßÄäÜüÖö}
+
+\newcommand* \meinDir {./Bewerber/}
+\input{\meinDir Allgemein.tex}
+
+% ------------------------------------------
+% Varianten, am Anfang vom Dokument einfügen
+% ------------------------------------------
+
+% Zeitangabe ohne Monat
+% \renewcommand \schickesDatum[2]{	{\parbox[t]{\datumsZellenBreite}{\centering{#2\baselineskip=\datumsZifferMonatsAbstand\newline\par\vspace{\datumsZifferMonatsAbstand}\tiny{\strut\vphantom{x}}}}}}
+
+
+
+% ------------------------------------------
+% Fehler
+% ------------------------------------------
+
+% "Missing number, treatet of zero" 
+% \newpage
+% nach dem letzten Block (Abschnitt) auf der ersten Seite einfügen
+\moderncvcolor{blue}
+\begin{document}
 \laengsteStadt{Hamburg}
 %\toggletrue{keinFoto}
 %\toggletrue{lebenslaufTitelZentriert}
@@ -126,20 +153,4 @@
 %\vfill
 \unterschriftLL
 
-
-% ------------------------------------------
-% Varianten, am Anfang vom Dokument einfügen
-% ------------------------------------------
-
-% Zeitangabe ohne Monat
-% \renewcommand \schickesDatum[2]{	{\parbox[t]{\datumsZellenBreite}{\centering{#2\baselineskip=\datumsZifferMonatsAbstand\newline\par\vspace{\datumsZifferMonatsAbstand}\tiny{\strut\vphantom{x}}}}}}
-
-
-
-% ------------------------------------------
-% Fehler
-% ------------------------------------------
-
-% "Missing number, treatet of zero" 
-% \newpage
-% nach dem letzten Block (Abschnitt) auf der ersten Seite einfügen
+\end{document}
