@@ -35,24 +35,13 @@ Da das meine erste Latexvorlage ist, hat sie sicher nicht die Qualität, die ihr 
 Changelog von isnok
 -------------------
 
-* Hab das mit den Bewerberdaten (noch nicht final) aufgeraeumt.
-* Dabei ist ein nettes Feature entstanden, das wahrscheinlich nur unter Linux und Co funktioniert: Man kann leicht den Bewerber austauschen (basiert auf Symlinks).
-* Dann habe ich noch die .sty Dateien verschoben, aber die Ordnerstruktur ist noch nicht auf Anhieb einleuchtend.
-* Bin dabei, das ganze (fuer Linux) mit etwas 'Workflow' zu versehen, da man meist mehr als eine Bewerbung schreibt.
+* Hab aufgeraeumt.
 
-So funktioniert das (unter Linux)
----------------------------------
-
-* Ich navigiere mich in der shell in den Ordner `Tex` und gebe dort `./neu.sh EineNeueFirma` ein.
-* Daraufhin kopiert mir das script die Vorlage in den Ordner `Tex/EineNeueFirma`. Die Vorlage enthaelt `Anschreiben.tex` und `Bewerbung.tex` (Anschreiben+Lebenslauf+Anlagen). Der Bewerber-Link zeigt auf mein directory, dadurch werden Lebenslauf und Anlagen erstmal von dort uebernommen.
-* Moechte ich fuer eine spezielle Bewerbung den Lebenlauf oder die Anlagen anpassen, so kopiere ich einfach deren `.tex` oder fetige `.pdf`-Dateien aus meinem Bewerber-Ordner in das Bewerbungsverzeichnis. Diese speziellen Versionen ueberschreiben die allgemeinen aus dem Bewerberverzeichnis.
-* Habe ich dann ein Anschreiben (und eventuell spezielle Anlagen, etc.) zusammen, so habe ich drei Moeglichkeiten das ganze zu kompilieren: `pdflatex -shell-escape` von Hand, oder `make` oder sogar `latexmk --pdf` (siehe todos).
 
 ToDos (isnok version)
 ---------------------
 
 * Aufraeumen/Dokumentieren der LaTeX Makros (\mein*, \sig, ...)
-* Das erzeugen von (Neben-) Tex/Pdf Dateien aus dem Main-Dokument via `\write18` fuehrt leider dazu, dass latexmk in einer Schleife landet, wenn es mit `--pvc` gestartet wird (continous preview). Seehr schade, denn damit laesst sich wunderbar LaTeX editieren.
-* Ordnerstruktur nochmal schoen machen. Das aktuelle funktioniert (immerhin :), krankt aber noch an Frickelei mit Latex-Berechtigungen in Sub-/Parent-Ordnern.
-* Ein kleiner toolkit aus meinem alten Bewerbungs-Repo moechte noch hier hinein. Es geht um ein paar Shell-Scripte, die aus Bildern (Scans) pdfs (in DIN A4) machen und so Sachen.
+* Das erzeugen von (Neben-) Tex/Pdf Dateien aus dem Main-Dokument via `\write18` fuehrt dazu, dass latexmk in einer Schleife laeuft, wenn es mit `--pvc` (continous preview) gestartet wird. Schade, denn damit laesst sich wunderbar LaTeX editieren.
+* Ein kleiner toolkit aus meinem alten Bewerbungs-Repo koenne noch hier hinein. Ein paar Shell-Scripte, die aus Bildern (Scans) pdfs (in DIN A4) machen und so.
 
