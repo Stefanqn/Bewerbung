@@ -21,12 +21,18 @@
 	%\includepdf[pages=-, addtotoc={1, pageRef, 0,Anschreiben,anschreiben}]{\anschreiben}
 	\bookmark[page=\thepage,level=0]{Anschreiben}
 	\includepdf[pages=-]{\anschreiben}
-}{\Huge kein Anschreiben}
+}{
+	\Huge kein Anschreiben \newline
+	\normalsize Im Pfad "\anschreiben" \hspace{1pt} konnte keine Datei gefunden werden. Bitte "\textbackslash buildir"\hspace{1pt}prüfen\newline
+}
 \IfFileExists{\lebenslauf}{
 	%\includepdf[pages=-, addtotoc={1, pageRef, 0,Lebenslauf,lebenslauf}]{\lebenslauf}
 	\bookmark[page=\thepage,level=0]{Lebenslauf}
 	\includepdf[pages=-]{\lebenslauf}
-}{\Huge kein CV}
+}{
+	\Huge kein CV\newline
+	\normalsize Im Pfad "\lebenslauf" \hspace{1pt} konnte keine Datei gefunden werden. Bitte "\textbackslash buildir"\hspace{1pt}prüfen
+}
 
 \input{../Bsp-Latex/Inhalt-Anlagen.tex}
 \end{document}

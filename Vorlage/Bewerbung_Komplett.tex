@@ -49,11 +49,17 @@
 \begin{document}
 \IfFileExists{\buildDir anschreibenGen.pdf}{
 	\includepdf[pages=-, addtotoc={1, pageRef, 0,Anschreiben,anschreiben}]{\buildDir anschreibenGen}
-}{\Huge kein Anschreiben}
+}{
+	\Huge kein Anschreiben \newline
+	\normalsize Im Pfad "\buildDir\textbackslash anschreibenGen.pdf" \hspace{1pt} konnte keine Datei gefunden werden. Bitte "\textbackslash buildir"\hspace{1pt}prüfen\newline
+}
 \IfFileExists{\buildDir cvGen.pdf}{
 	\bookmark[page=\thepage,level=0]{Lebenslauf}
 	\includepdf[pages=-]{\buildDir cvGen}
-}{\Huge kein CV}
+}{
+	\Huge kein CV\newline
+	\normalsize Im Pfad "\buildDir\textbackslash cvGen.pdf" \hspace{1pt} konnte keine Datei gefunden werden. Bitte "\textbackslash buildir"\hspace{1pt}prüfen
+}
 
 \input{../Bsp-Latex/Inhalt-Anlagen.tex}
 %\input{../Priv-Latex/Inhalt-Anlagen.tex}
