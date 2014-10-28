@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<svg
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:cc="http://creativecommons.org/ns#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+    xmlns:ns1="http://sozi.baierouge.fr"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    id="svg3003"
+    viewBox="0 0 578.56 578.56"
+    version="1.1"
+  >
+  <g
+      id="layer1"
+      transform="translate(34.996 -291.65)"
+    >
+    <path
+        id="path4597"
+        d="m204.39 531.16c-34.191 34.28-52.373 55.086-71.47 84.566-17.018 26.272-28.306 47.55-31.346 56.598-8.7887 26.156-0.71683 32.858 9.8396 40.768 10.557 7.9101 24.614 18.18 33.854 22.047 6.1635 2.5806 11.768 4.5746 21.211-3.6571 9.4428-8.232 39.388-37.614 46.916-45.592 13.477-14.283 7.0415-18.359 1.9323-26.697-5.1085-8.3383-20.369-23.323-19.992-33.192 0.3927-10.273 4.8826-14.586 11.702-23.266 6.5197-8.2975 31.336-33.147 33.558-35.369 0.0109-0.0106 0.0935-0.0935 0.12467-0.12467 2.2222-2.2222 27.066-27.044 35.369-33.558 8.6799-6.8199 12.994-11.311 23.266-11.703 9.8698-0.37712 24.854 14.884 33.193 19.992 8.338 5.1082 12.414 11.544 26.697-1.9323 7.9774-7.5283 37.361-37.472 45.591-46.916 8.2317-9.4428 6.2367-15.048 3.6571-21.211-3.8668-9.24-14.137-23.297-22.047-33.854-7.9104-10.557-14.612-18.628-40.768-9.8393-9.048 3.0387-30.326 14.328-56.598 31.346-29.48 19.097-50.284 37.281-84.566 71.47l-0.12467 0.12467z"
+    />
+    <path
+        id="path8258-7"
+        d="m254.29 291.65c159.78 0 289.28 129.5 289.28 289.28s-129.5 289.28-289.28 289.28-289.28-129.5-289.28-289.28 129.5-289.28 289.28-289.28zm0 36.133c-139.81 0-253.15 113.34-253.15 253.15s113.34 253.15 253.15 253.15 253.15-113.34 253.15-253.15-113.34-253.15-253.15-253.15z"
+    />
+  </g
+  >
+  <metadata
+    >
+    <rdf:RDF
+      >
+      <cc:Work
+        >
+        <dc:format
+          >image/svg+xml</dc:format
+        >
+        <dc:type
+            rdf:resource="http://purl.org/dc/dcmitype/StillImage"
+        />
+        <cc:license
+            rdf:resource="http://creativecommons.org/licenses/publicdomain/"
+        />
+        <dc:publisher
+          >
+          <cc:Agent
+              rdf:about="http://openclipart.org/"
+            >
+            <dc:title
+              >Openclipart</dc:title
+            >
+          </cc:Agent
+          >
+        </dc:publisher
+        >
+        <dc:title
+          >Phone icon</dc:title
+        >
+        <dc:date
+          >2013-10-21T14:44:41</dc:date
+        >
+        <dc:description
+          >A simple phone icon</dc:description
+        >
+        <dc:source
+          >https://openclipart.org/detail/185269/phone-icon-by-minduka-185269</dc:source
+        >
+        <dc:creator
+          >
+          <cc:Agent
+            >
+            <dc:title
+              >Minduka</dc:title
+            >
+          </cc:Agent
+          >
+        </dc:creator
+        >
+        <dc:subject
+          >
+          <rdf:Bag
+            >
+            <rdf:li
+              >icon</rdf:li
+            >
+            <rdf:li
+              >icon phone</rdf:li
+            >
+            <rdf:li
+              >phone</rdf:li
+            >
+            <rdf:li
+              >phone icon</rdf:li
+            >
+            <rdf:li
+              >telephone</rdf:li
+            >
+          </rdf:Bag
+          >
+        </dc:subject
+        >
+      </cc:Work
+      >
+      <cc:License
+          rdf:about="http://creativecommons.org/licenses/publicdomain/"
+        >
+        <cc:permits
+            rdf:resource="http://creativecommons.org/ns#Reproduction"
+        />
+        <cc:permits
+            rdf:resource="http://creativecommons.org/ns#Distribution"
+        />
+        <cc:permits
+            rdf:resource="http://creativecommons.org/ns#DerivativeWorks"
+        />
+      </cc:License
+      >
+    </rdf:RDF
+    >
+  </metadata
+  >
+</svg
+>

@@ -136,21 +136,32 @@
 \@ifundefined{meinFaxSymbol}{\newcommand*{\meinFaxSymbol}{}}{}
 \@ifundefined{emailsymbol}{\newcommand*{\emailsymbol}{}}{}
 \@ifundefined{homepagesymbol}{\newcommand*{\homepagesymbol}{}}{}
-
-
+\@ifundefined{addresssymbol}{\newcommand*{\addresssymbol}{}}{}
 
 \renewcommand*{\myMarvosymbol}[1]{{\fontfamily{mvs}\fontencoding{U}\fontseries{m}\fontshape{n}\selectfont\char#1}}
-\renewcommand*{\mobilesymbol}{\myMarvosymbol{72}~}
-\renewcommand*{\phonesymbol}{\myMarvosymbol{84}~}
-\renewcommand*{\meinFaxSymbol}{\myMarvosymbol{118}~}
-\renewcommand*{\emailsymbol}{\myMarvosymbol{66}~}
+\newcommand{\oldSymbols}{	
+	\renewcommand*{\mobilesymbol}{\myMarvosymbol{72}~}
+	\renewcommand*{\phonesymbol}{\myMarvosymbol{84}~}
+	\renewcommand*{\meinFaxSymbol}{\myMarvosymbol{118}~}
+	\renewcommand*{\emailsymbol}{\myMarvosymbol{66}~}
+	\renewcommand*{\homepagesymbol}{{\Large\myMarvosymbol{205}}~}
+}
+
+
+\newcommand*{\defaultSymbolHeight}{0.7\baselineskip}
+\newcommand*{\pdfPicPath}{../Pics/PDFs}
+\renewcommand*{\mobilesymbol}{\includegraphics[height=0.7\baselineskip]{\pdfPicPath/cell}~}
+\renewcommand*{\phonesymbol}{\includegraphics[height=0.65\baselineskip]{\pdfPicPath/telefon}~}
+\renewcommand*{\meinFaxSymbol}{\includegraphics[height=\defaultSymbolHeight]{\pdfPicPath/fax}~}
+\renewcommand*{\emailsymbol}{\includegraphics[height=0.6\baselineskip]{\pdfPicPath/EmailSimple_1}~}
 \renewcommand*{\homepagesymbol}{{\Large\myMarvosymbol{205}}~}
+\renewcommand*{\addresssymbol}{\includegraphics[height=0.7\baselineskip]{\pdfPicPath/dynnamitt_home}~}
 % <<-- symbols
 
 
 \newcommand \anschriftKopfZeile {%
 	\kopfZeile{%
-		\addresse%
+		\\\addresssymbol \addresse%
 		\if\relax\mobilNr\relax\else 	\\\mobilesymbol \mobilNr\fi%
 		\if\relax\festnetzNr\relax\else \\\phonesymbol \festnetzNr\fi%
 		\if\relax\faxNr\relax\else\\\meinFaxSymbol \faxNr\fi%

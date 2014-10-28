@@ -1,0 +1,1 @@
+FOR %%A IN (./SVGs/*.svg) DO "C:\Program Files (x86)\Inkscape\inkscape.exe" -z -D --file=./SVGs/%%~nA.svg --export-pdf=./PDFs/%%~nA.pdf  
