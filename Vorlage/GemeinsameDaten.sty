@@ -1,5 +1,6 @@
 \ProvidesPackage{GemeinsameDaten}
 
+\RequirePackage[export]{adjustbox}
 \RequirePackage[dvipsnames]{xcolor}
 \RequirePackage{etoolbox}
 %\RequirePackage{tabu} %crashes CV
@@ -150,18 +151,18 @@
 
 \newcommand*{\defaultSymbolHeight}{0.7\baselineskip}
 \newcommand*{\pdfPicPath}{../Pics/PDFs}
-\renewcommand*{\mobilesymbol}{\includegraphics[height=0.7\baselineskip]{\pdfPicPath/cell}~}
-\renewcommand*{\phonesymbol}{\includegraphics[height=0.65\baselineskip]{\pdfPicPath/telefon}~}
+\renewcommand*{\mobilesymbol}{\includegraphics[height=0.9\baselineskip,margin*=0pt -0.2ex 0pt 0pt]{\pdfPicPath/cell}~}
+\renewcommand*{\phonesymbol}{\includegraphics[height=0.75\baselineskip,margin*=0pt -0.15ex 0pt 0pt]{\pdfPicPath/telefon}~}
 \renewcommand*{\meinFaxSymbol}{\includegraphics[height=\defaultSymbolHeight]{\pdfPicPath/fax}~}
-\renewcommand*{\emailsymbol}{\includegraphics[height=0.6\baselineskip]{\pdfPicPath/EmailSimple_1}~}
+\renewcommand*{\emailsymbol}{\includegraphics[height=0.7\baselineskip,margin*=0pt -0.15ex 0pt 0pt]{\pdfPicPath/letter}~}
 \renewcommand*{\homepagesymbol}{{\Large\myMarvosymbol{205}}~}
-\renewcommand*{\addresssymbol}{\includegraphics[height=0.7\baselineskip]{\pdfPicPath/dynnamitt_home}~}
+\renewcommand*{\addresssymbol}{\includegraphics[height=0.9\baselineskip,margin*=0pt -0.15ex 0pt 0pt]{\pdfPicPath/simple-home}~}
 % <<-- symbols
 
 
 \newcommand \anschriftKopfZeile {%
 	\kopfZeile{%
-		\\\addresssymbol \addresse%
+		\\\vspace{-0.8\baselineskip}\addresssymbol \addresse%
 		\if\relax\mobilNr\relax\else 	\\\mobilesymbol \mobilNr\fi%
 		\if\relax\festnetzNr\relax\else \\\phonesymbol \festnetzNr\fi%
 		\if\relax\faxNr\relax\else\\\meinFaxSymbol \faxNr\fi%
