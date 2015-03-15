@@ -50,15 +50,17 @@
 \IfFileExists{\buildDir anschreibenGen.pdf}{
 	\includepdf[pages=-, addtotoc={1, pageRef, 0,Anschreiben,anschreiben}]{\buildDir anschreibenGen}
 }{
-	\Huge kein Anschreiben \newline
-	\normalsize Im Pfad "\buildDir\textbackslash anschreibenGen.pdf" \hspace{1pt} konnte keine Datei gefunden werden. Bitte "\textbackslash buildir"\hspace{1pt}prüfen\newline
+	\Huge ooops \normalsize etwas stimmt nicht. \\
+	
+	Wahrscheinlich ist die \textbf{\textbackslash buildDir} Variable nicht richtig gesetzt oder \textbf{Shell--Escape} wurde nicht aktiviert, siehe\\ http://tex.stackexchange.com/questions/37489/how-can-i-enable-write-18-on-a-miktex-installation
+	\\\\
+	\textbf{kein Anschreiben} im Pfad "\buildDir\textbackslash anschreibenGen.pdf" \hspace{1pt} gefunden. Bitte "\textbackslash buildir"\hspace{1pt}prüfen\newline\\
 }
 \IfFileExists{\buildDir cvGen.pdf}{
 	\bookmark[page=\thepage,level=0]{Lebenslauf}
 	\includepdf[pages=-]{\buildDir cvGen}
 }{
-	\Huge kein CV\newline
-	\normalsize Im Pfad "\buildDir\textbackslash cvGen.pdf" \hspace{1pt} konnte keine Datei gefunden werden. Bitte "\textbackslash buildir"\hspace{1pt}prüfen
+	\textbf{kein CV} im Pfad "\buildDir\textbackslash cvGen.pdf" \hspace{1pt} gefunden. Bitte "\textbackslash buildir"\hspace{1pt}prüfen
 }
 
 \input{../Bsp-Latex/Inhalt-Anlagen.tex}
