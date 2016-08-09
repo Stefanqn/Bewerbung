@@ -122,13 +122,22 @@
 
 \newcommand{\kopfZeile}[1]{%
 	\parbox[b]{\textwidth}{%
-		\raggedleft
-		{\kopfName}%
-		{ \\[-.4\baselineskip]%
-	{{\parbox{\textwidth}{\color{rulecolor}\rule{\textwidth}{1.5pt}}}}
+		\raggedleft {\kopfName}
+		\\\vspace{-0.4\baselineskip}{\parbox{\textwidth}{\color{rulecolor}\rule{\textwidth}{1.5pt}}}
 	\strut\ignorespaces%
-	#1}
+	#1
 }}
+
+%% Buggy version
+%\newcommand{\kopfZeile}[1]{%
+%	\parbox[b]{\textwidth}{%
+%		\raggedleft
+%		{\kopfName}%
+%		{ \\[-.4\baselineskip]%
+%	{{\parbox{\textwidth}{\color{rulecolor}\rule{\textwidth}{1.5pt}}}}
+%	\strut\ignorespaces%
+%	#1}
+%}}
 
 
 \@ifundefined{myMarvosymbol}{\newcommand*{\myMarvosymbol}[1]{}}{} 
