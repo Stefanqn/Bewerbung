@@ -88,7 +88,7 @@
 
 % ============ Abstaende modernCV ============ % adjust the page margins
 \newcommand \headSep {4mm}
-\newcommand \defTop {29mm}%30mm default
+\newcommand \defTop {29.5mm}%30mm default
 \RequirePackage[
 	%a4paper,scale=0.5
 	%,showframe,showcrop%
@@ -103,22 +103,6 @@
 
 
 % ------------ Kopf ------------
-%\fancyhadoffset{5mm} 
-
-\newcommand{\kopfZeilex}[1]{%
-	\parbox[b]{\textwidth}{%
-		\raggedleft {\kopfName}
-		%\vspace{-1\baselineskip}
-		\vspace{0\baselineskip}{\parbox{\textwidth}{\color{rulecolor}\rule{\textwidth}{1.5pt}}}
-}}
-
-\newcommand{\kopfZeilexx}[1]{%
-	\begin{minipage}[c][][b]{\textwidth} %
-		\raggedleft {\raisebox{-1\baselineskip}{\kopfName}}
-		\vspace{2pt}{\parbox{\textwidth}{\color{rulecolor}\rule{\textwidth}{1.5pt}}}
-	\end{minipage}%
-}
-
 \fancyheadoffset{\iftoggle{breiterLebenslauf}{0mm}{5mm}} % kopf 5mm breiter als txt
 \chead{\kopfZeile{}}
 
