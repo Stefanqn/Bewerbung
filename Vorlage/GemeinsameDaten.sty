@@ -121,12 +121,22 @@
 }}
 
 \newcommand{\kopfZeile}[1]{%
+	\begin{minipage}[c][][b]{\textwidth} %
+		\raggedleft {\raisebox{-1\baselineskip}{\kopfName}}
+		\vspace{2pt}{\parbox{\textwidth}{\color{rulecolor}\rule{\textwidth}{1.5pt}}}%
+		#1%
+	\end{minipage}%
+}
+
+
+\newcommand{\kopfZeileA}[1]{%
 	\parbox[b]{\textwidth}{%
 		\raggedleft {\kopfName}
 		\\\vspace{-0.4\baselineskip}{\parbox{\textwidth}{\color{rulecolor}\rule{\textwidth}{1.5pt}}}
 	\strut\ignorespaces%
 	#1
 }}
+
 
 %% Buggy version
 %\newcommand{\kopfZeile}[1]{%
@@ -171,7 +181,7 @@
 
 \newcommand \anschriftKopfZeile {%
 	\kopfZeile{%
-		\\\vspace{-0.8\baselineskip}\addresssymbol \addresse%
+		\\\vspace{0.1\baselineskip}\addresssymbol \addresse%
 		\if\relax\mobilNr\relax\else 	\\\mobilesymbol \mobilNr\fi%
 		\if\relax\festnetzNr\relax\else \\\phonesymbol \festnetzNr\fi%
 		\if\relax\faxNr\relax\else\\\meinFaxSymbol \faxNr\fi%

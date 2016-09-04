@@ -1,7 +1,8 @@
-\ProvidesPackage{Vorlage_Lebenslauf}
+\ProvidesPackage{Vorlage_Lebenslaufxx}
 
 
 % ============ Packete ============
+\PassOptionsToPackage{pdfpagelabels=false}{hyperref} 
 \RequirePackage{GemeinsameDaten}
 %\RequirePackage[utf8]{inputenc}
 \RequirePackage[ngerman]{babel}% deutsch
@@ -15,6 +16,7 @@
 \RequirePackage{graphicx}
 
 
+\errorcontextlines 100000
 \newtoggle{keinFoto}
 \newtoggle{lebenslaufTitelZentriert}
 
@@ -72,12 +74,43 @@
 \end{minipage}}
 
 % ============ Style ============
-
  \setlength{\hintscolumnwidth}{0.2\textwidth} %Linke Spalte groesser def.:0.175, fuer Familienstand 0.192. Mit geboren 0.18
 \AtEndPreamble{\@ifclassloaded{moderncv}{\recomputecvlengths}{}}
 
+% ============ Abstaende modernCV ============ % adjust the page margins
+\newcommand \headSep {4mm}
+\newcommand \defTop {29mm}%30mm default
+\RequirePackage[
+	a4paper,scale=0.75
+	%,showframe,showcrop%
+	,left=25mm, right=25mm
+	,headheight=25mm
+	,top=\defTop+\headSep
+	,headsep=\headSep
+	,bottom=\fussAbstand+0.35mm % \fussAbstand 22.5mm 35.5mm
+]{geometry}
+
+
+
+
 % ------------ Kopf ------------
-\fancyheadoffset{5mm} 
+%\fancyhadoffset{5mm} 
+
+\newcommand{\kopfZeilex}[1]{%
+	\parbox[b]{\textwidth}{%
+		\raggedleft {\kopfName}
+		%\vspace{-1\baselineskip}
+		\vspace{0\baselineskip}{\parbox{\textwidth}{\color{rulecolor}\rule{\textwidth}{1.5pt}}}
+}}
+
+\newcommand{\kopfZeilexx}[1]{%
+	\begin{minipage}[c][][b]{\textwidth} %
+		\raggedleft {\raisebox{-1\baselineskip}{\kopfName}}
+		\vspace{2pt}{\parbox{\textwidth}{\color{rulecolor}\rule{\textwidth}{1.5pt}}}
+	\end{minipage}%
+}
+
+\fancyheadoffset{5mm} % kopf 5mm breiter als txt
 \chead{\kopfZeile{}}
 
 % ------------ Fuss ------------
@@ -194,18 +227,6 @@
 
 
 	
-% ============ Abstaende modernCV ============ % adjust the page margins
-\newcommand \headSep {4mm}
-\newcommand \defTop {29mm}%30mm default
-\RequirePackage[
-	a4paper,scale=0.75
-	%,showframe,showcrop%
-	,left=25mm, right=25mm
-	,headheight=10mm
-	,top=\defTop+\headSep
-	,headsep=\headSep
-	,bottom=\fussAbstand+0.35mm % \fussAbstand 22.5mm 35.5mm
-]{geometry}
 
 
 
