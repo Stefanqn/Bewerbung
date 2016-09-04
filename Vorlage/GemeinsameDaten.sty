@@ -37,9 +37,9 @@
 		% Blinds 	/Dm | Box 	/M | Dissolve | Glitter 	/Di | Split 	/Dm /M | Wipe 	/Di 
 		% /Di= direction  in degrees, generally in 90 steps | /Dm horizontal (/H) or vertical (/V) | 
 		% /M is motion, in (/I) or out (/O).
-    unicode=true,          % non-Latin characters in Acrobats bookmarks
-    %pdftoolbar=true,        % show Acrobats toolbar?
-    %pdfmenubar=true,        % show Acrobats menu?
+    unicode=true,          % non-Latin characters in Acrobat bookmarks
+    %pdftoolbar=true,        % show Acrobat toolbar?
+    %pdfmenubar=true,        % show Acrobat menu?
     pdffitwindow=true,     % window fit to page when opened
     pdfstartview={FitH},    % fits the FitV/FitH of the page to the window
     pdftitle={Bewerbung - \meinName},    % title
@@ -128,28 +128,17 @@
 	\end{minipage}%
 }
 
+\newcommand \anschriftKopfZeile {%
+	\kopfZeile{%
+		\\\vspace{0.1\baselineskip}\addresssymbol \addresse%
+		\if\relax\mobilNr\relax\else 	\\\mobilesymbol \mobilNr\fi%
+		\if\relax\festnetzNr\relax\else \\\phonesymbol \festnetzNr\fi%
+		\if\relax\faxNr\relax\else\\\meinFaxSymbol \faxNr\fi%
+		\\\emailsymbol \myEmail% \if\relax\myEmail\relax\else\fi%
+		}%
+}
 
-\newcommand{\kopfZeileA}[1]{%
-	\parbox[b]{\textwidth}{%
-		\raggedleft {\kopfName}
-		\\\vspace{-0.4\baselineskip}{\parbox{\textwidth}{\color{rulecolor}\rule{\textwidth}{1.5pt}}}
-	\strut\ignorespaces%
-	#1
-}}
-
-
-%% Buggy version
-%\newcommand{\kopfZeile}[1]{%
-%	\parbox[b]{\textwidth}{%
-%		\raggedleft
-%		{\kopfName}%
-%		{ \\[-.4\baselineskip]%
-%	{{\parbox{\textwidth}{\color{rulecolor}\rule{\textwidth}{1.5pt}}}}
-%	\strut\ignorespaces%
-%	#1}
-%}}
-
-
+%% ============= Symbole =============
 \@ifundefined{myMarvosymbol}{\newcommand*{\myMarvosymbol}[1]{}}{} 
 \@ifundefined{mobilesymbol}{\newcommand*{\mobilesymbol}{}}{}
 \@ifundefined{phonesymbol}{\newcommand*{\phonesymbol}{}}{}
@@ -178,16 +167,6 @@
 \renewcommand*{\addresssymbol}{\includegraphics[height=0.9\baselineskip,margin*=0pt -0.15ex 0pt 0pt]{\pdfPicPath/simple-home}~}
 % <<-- symbols
 
-
-\newcommand \anschriftKopfZeile {%
-	\kopfZeile{%
-		\\\vspace{0.1\baselineskip}\addresssymbol \addresse%
-		\if\relax\mobilNr\relax\else 	\\\mobilesymbol \mobilNr\fi%
-		\if\relax\festnetzNr\relax\else \\\phonesymbol \festnetzNr\fi%
-		\if\relax\faxNr\relax\else\\\meinFaxSymbol \faxNr\fi%
-		\\\emailsymbol \myEmail% \if\relax\myEmail\relax\else\fi%
-		}%
-}
 
 %% === Overfull boxes ==
 %% \overfullrule=0pt
