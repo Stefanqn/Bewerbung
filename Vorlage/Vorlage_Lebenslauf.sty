@@ -1,4 +1,11 @@
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
 \ProvidesPackage{Vorlage_Lebenslauf}
+
+\newtoggle{breiterLebenslauf}
+\DeclareOption{breit}{\toggletrue{breiterLebenslauf}}
+\DeclareOption{schmal}{\togglefalse{breiterLebenslauf}}
+\ExecuteOptions{schmal}
+\ProcessOptions
 
 
 % ============ Packete ============
@@ -19,6 +26,8 @@
 \errorcontextlines 100000
 \newtoggle{keinFoto}
 \newtoggle{lebenslaufTitelZentriert}
+
+
 
 % ============ modernCV Optionen + Switch ============
 \@ifundefined{pdfpagemode}{\newcommand* \pdfpagemode {UseOutlines} }{}
@@ -81,9 +90,9 @@
 \newcommand \headSep {4mm}
 \newcommand \defTop {29mm}%30mm default
 \RequirePackage[
-	a4paper,scale=0.75
+	%a4paper,scale=0.5
 	%,showframe,showcrop%
-	,left=25mm, right=25mm
+	,left=\iftoggle{breiterLebenslauf}{20mm}{25mm}, right=\iftoggle{breiterLebenslauf}{20mm}{25mm}
 	,headheight=25mm
 	,top=\defTop+\headSep
 	,headsep=\headSep
@@ -110,16 +119,16 @@
 	\end{minipage}%
 }
 
-\fancyheadoffset{5mm} % kopf 5mm breiter als txt
+\fancyheadoffset{\iftoggle{breiterLebenslauf}{0mm}{5mm}} % kopf 5mm breiter als txt
 \chead{\kopfZeile{}}
 
 % ------------ Fuss ------------
-\fancyfoot[OR]{%
-	\hspace*{-5mm}\parbox{\textwidth+10mm}{%
+\fancyfoot[OR]{% Fusstext verschieben
+	\hspace*{\iftoggle{breiterLebenslauf}{0mm}{-5mm}}\parbox{\textwidth+\iftoggle{breiterLebenslauf}{0mm}{10mm}}{%
 	\raggedleft Lebenslauf Seite \thepage /\pageref{LastPage}
 }}
 \renewcommand{\footrulewidth}{10pt}
-\renewcommand{\footrule}{\fussLinie{\hspace{-5mm}}{10mm}}
+\renewcommand{\footrule}{\iftoggle{breiterLebenslauf}{\fussLinie{\hspace{0mm}}{0mm}}{\fussLinie{\hspace{-5mm}}{10mm}}}
 
 
 % ------------ Titel ------------
@@ -128,12 +137,13 @@
      \color{color1}%
 	 \framebox{\includegraphics[width=\@photowidth]{\@photo}}}
 
-\newcommand \picLine {\makebox[\the\textwidth+5mm][r]{\pic}}% \the\textwidth+5mm
+\newcommand \picLine {\makebox[\the\textwidth+\iftoggle{breiterLebenslauf}{0mm}{5mm}][r]{\pic}}%
 
 \newcommand* \titel [1] {%
 	\iftoggle{keinFoto}{}{%
 	\newlength{\picLH}%
 	\settoheight{\picLH}{\picLine}%
+	\vspace*{0mm}%
 	\picLine%
 	\vspace{-\picLH}}% 
 	\par\iftoggle{lebenslaufTitelZentriert}{\centering}{}
@@ -348,4 +358,4 @@
 	
 \end{comment}
 
-
+\endinput
