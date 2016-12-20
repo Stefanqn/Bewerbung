@@ -1,11 +1,3 @@
-
-% ------------------------------------------
-% Varianten, am Anfang vom Dokument einfügen
-% ------------------------------------------
-
-% Zeitangabe ohne Monat
-% \renewcommand \schickesDatum[2]{	{\parbox[t]{\datumsZellenBreite}{\centering{#2\baselineskip=\datumsZifferMonatsAbstand\newline\par\vspace{\datumsZifferMonatsAbstand}\tiny{\strut\vphantom{x}}}}}}
-
 \laengsteStadt{Hamburg}
 %\toggletrue{keinFoto} % <- ohne Foto
 %\toggletrue{lebenslaufTitelZentriert}
@@ -13,7 +5,10 @@
 %\renewcommand \eintragL [5]{\eintragLZwei{#1}{#2}{#3}{#4}{#5}} %2 statt 3 spalten Eintraege
 
 \emergencystretch=25pt\tolerance=800\hyphenpenalty=1000%\hbadness=10000\linepenalty=5000%\linepenalty=40\hyphenpenalty=80%\exhyphenpenalty=3000%
-\titel{\emph{Lebenslauf}}
+\titel{\vspace*{5mm}\emph{Lebenslauf}\vspace*{2mm}}
+
+
+
 
 \section{Persönliche Daten}
 \eintragK{Name}										{\nachname}
@@ -25,6 +20,8 @@
 \eintragK{}												{\PLZ \ \wohnort}
 \eintragK{Telefon}								{\mobilNr}
 \eintragK{Email}									{\myEmail}
+
+
 
 %\onehalfspacing\setlength\datumsVKorrektur{-1.2\baselineskip}
 
@@ -127,7 +124,22 @@
 
 \vspace{3\baselineskip}
 %\vfill
-\unterschriftLL
+%%\unterschriftLL
+
+
+% ------------------------------------------
+% Varianten, am Anfang vom Dokument einfügen
+% ------------------------------------------
+
+% Zeitangabe ohne Monat
+% \renewcommand \schickesDatum[2]{	{\parbox[t]{\datumsZellenBreite}{\centering{#2\baselineskip=\datumsZifferMonatsAbstand\newline\par\vspace{\datumsZifferMonatsAbstand}\tiny{\strut\vphantom{x}}}}}}
 
 
 
+% ------------------------------------------
+% Fehler
+% ------------------------------------------
+
+% "Missing number, treatet of zero" 
+% \newpage
+% nach dem letzten Block (Abschnitt) auf der ersten Seite einfügen

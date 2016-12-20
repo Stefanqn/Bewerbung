@@ -8,13 +8,13 @@
 \ProcessOptions
 
 
-% ============ Packete ============
+% ============ Pakete ============
 \PassOptionsToPackage{pdfpagelabels=false}{hyperref} 
 \RequirePackage{GemeinsameDaten}
 %\RequirePackage[utf8]{inputenc}
 \RequirePackage[ngerman]{babel}% deutsch
 \RequirePackage{calc,layout,lastpage,lipsum,verbatim}
-\RequirePackage{tabu} %crashes CV?
+\RequirePackage{tabu} 
 \RequirePackage{datetime,setspace}
 
 \RequirePackage{xparse}
@@ -288,58 +288,5 @@
 %\nopagenumbers{}
 %familydefault \familydefault\\sfdefault \sfdefault\\rmdefault \rmdefault\\ttdefault \ttdefault\\
 
-
-
-
-% ============ Alt ============
-\begin{comment}
-\newcommand \eintragL [5]{%
-	{\if\relax\detokenize{#5}\relax
-		\eintragLLb[\eintragsAbstand]{#1}{\mdseries{#2}\normalfont}{\textit{#3}}{#4}\vspace{\datumsEintragEinzeiligVStrafe}
-	\else
-		\eintragLL[\eintragsAbstand]{#1}{\mdseries{#2}\normalfont}{\textit{#3}}{#4}{\vspace{\datumsVKorrektur}#5}
-	\fi}
-}
-
-\newcommand* \eintragLLb [5][.25em]{%
-	\begin{tabu}{%
-	@{} p{\hintscolumnwidth} @{\hspace{\separatorcolumnwidth}}%
-	p{.55\maincolumnwidth}p{.25\maincolumnwidth}r@{}%
-	}{%
-	\raggedleft\hintstyle{#2} & {#3} & {#4} & {#5}
-	}%
-	\end{tabu}%
-	\par\addvspace{#1}}
-	
-	
-	
-\newcommand* \eintragLL [6][.25em]{%
-	\begin{tabu}{@{} p{\hintscolumnwidth} @{\hspace{\separatorcolumnwidth}}%
-	p{.55\maincolumnwidth}p{.25\maincolumnwidth}r@{}}{
-	\raggedleft\hintstyle{#2} & {#3} & {#4} & {#5} %
-	\\ & \multicolumn3{p{\maincolumnwidth}}{\begin{minipage}[t]{\linewidth}#6\end{minipage}}%
-	}%
-	\end{tabu}%
-  \par\addvspace{#1}}
-	
-	
-\newcommand \eintragM [4]{%
-	\ifx&#4&
-		\eintragKK[\eintragsAbstand]{#1}{\mdseries{#2}\normalfont}{#3}\vspace{\datumsEintragEinzeiligVStrafe}
-	\else
-		\eintragMM[\eintragsAbstand]{#1}{\mdseries{#2}\normalfont}{#3}{\vspace{\datumsVKorrektur}#4}%
-	\fi
-}
-
-%\eintrag{Dauer}{Firma}{Ort}{Beschreibung ..... mehrzeilig}
-\newcommand \eintragMM [5][.25em]{%
-	\begin{tabu}{@{} p{\hintscolumnwidth} @{\hspace{\separatorcolumnwidth}} p{\maincolumnwidth} @{}}{
-	\raggedleft\hintstyle{#2} & {#3 \hfill #4}\\% %\vspace{\datumsVKorrektur} -4mm perfekt
-	&{\begin{minipage}[t]{\linewidth}#5\end{minipage}}
-	}%
-	\end{tabu}%
-  \par\addvspace{#1}}
-	
-\end{comment}
 
 \endinput
