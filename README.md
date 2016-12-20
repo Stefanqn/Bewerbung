@@ -12,22 +12,22 @@ Latex Bewerbungsvorlage konform zu DIN5008. Siehe [PDF Beispiel](https://github.
 --------
 ```anschreiben.tex``` Anschreiben einzeln  
 ```cv.tex``` Lebenslauf einzeln  
-```Bewerbung_Einzeln.tex``` Anschreiben und CV m¸ssen vorher erzeugt werden.  
-```Bewerbung_Komplett.tex``` Alles in einem Rutsch, benˆtigt shell-escape. Siehe Kommentar.  
+```Bewerbung_Einzeln.tex``` Anschreiben und CV m√ºssen vorher erzeugt werden.  
+```Bewerbung_Komplett.tex``` Alles in einem Rutsch, ben√∂tigt shell-escape. Siehe Kommentar.  
 
 \Bsp-Latex
 ----------
 ```Inhalt-Anlagen.tex``` Beispiel Anlagen  
 ```Inhalt-Anschreiben.tex``` Beispiel Anschreiben  
 ```Inhalt-CV.tex``` Beispiel Lebenslauf  
-```mm.tex``` Max Mustermanns persˆnliche Daten sowie der Pfad des build Verzeichnisses 
+```BewerberInfos.tex``` Max Mustermanns pers√∂nliche Daten sowie der Pfad des build Verzeichnisses 
 
 ToDos
 -----
-Da das meine erste Latexvorlage ist, hat sie sicher nicht die Qualit‰t, die ihr sonst gewohnt seid. Falls jemand etwas beitragen will nehm' ich gern Patches oder Code an. Folgende Punkte sind mir aktuell ein Dorn im Auge:
-*		modernCV Abh‰ngigkeit: lˆsen --> ein Compilerlauf --> gescheite PDF Refs, wie z.B. Lebenslauf Sektionen im InhaltsVZ 
-*		Allgemein Entr¸mpeln ;)
-*		Unterschiedliche Schriftgrˆﬂen und Zeilenabstand unterst¸tzten: alles auﬂer 12pt versaut aktuell das Layout
+Da das meine erste Latexvorlage ist, hat sie sicher nicht die Qualit√§t, die ihr sonst gewohnt seid. Falls jemand etwas beitragen will nehm' ich gern Patches oder Code an. Folgende Punkte sind mir aktuell ein Dorn im Auge:
+*		modernCV Abh√§ngigkeit: l√∂sen --> ein Compilerlauf --> gescheite PDF Refs, wie z.B. Lebenslauf Sektionen im InhaltsVZ 
+*		Allgemein Entr√ºmpeln ;)
+*		Unterschiedliche Schriftgr√∂√üen und Zeilenabstand unterst√ºtzten: alles au√üer 12pt versaut aktuell das Layout
 *		Layout einer 2ten Anschreibenseite (Seitenzahl, Fusslinie)
 
 
