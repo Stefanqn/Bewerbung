@@ -1,7 +1,6 @@
 Bewerbung
 =========
-Latex Bewerbungsvorlage konform zu DIN5008. Siehe [PDF Beispiel](https://github.com/Stefanqn/Bewerbung/blob/master/Fertiges-PDF/Bewerbung_Komplett.pdf?raw=true). [Bier-](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MZEBQZGWBTVVG)
- oder noch besser Quellcodespenden sind herzlich willkommen ;)
+Latex Bewerbungsvorlage konform zu DIN5008. Siehe [PDF Beispiel](https://github.com/Stefanqn/Bewerbung/blob/master/Fertiges-PDF/Bewerbung_Komplett.pdf?raw=true). 
  
  Diskussion
 ----------
@@ -22,12 +21,15 @@ Latex Bewerbungsvorlage konform zu DIN5008. Siehe [PDF Beispiel](https://github.
 ```Inhalt-CV.tex``` Beispiel Lebenslauf  
 ```BewerberInfos.tex``` Max Mustermanns persönliche Daten sowie der Pfad des build Verzeichnisses 
 
-ToDos
+\Limitierungen
 -----
-Da das meine erste Latexvorlage ist, hat sie sicher nicht die Qualität, die ihr sonst gewohnt seid. Falls jemand etwas beitragen will nehm' ich gern Patches oder Code an. Folgende Punkte sind mir aktuell ein Dorn im Auge:
+Folgende Punkte sind mir aktuell ein Dorn im Auge:
 *		modernCV Abhängigkeit: lösen --> ein Compilerlauf --> gescheite PDF Refs, wie z.B. Lebenslauf Sektionen im InhaltsVZ 
-*		Allgemein Entrümpeln ;)
-*		Unterschiedliche Schriftgrößen und Zeilenabstand unterstützten: alles außer 12pt versaut aktuell das Layout
-*		Layout einer 2ten Anschreibenseite (Seitenzahl, Fusslinie)
+*		Unterschiedliche Schriftgrößen und Zeilenabstand werden nicht unterstützt: alles außer 12pt verunstaltet das Layout
+*		Layout einer 2ten Anschreibenseite passt nicht (Seitenzahl, Fusslinie)
+
+\Notizen
+----------
+Für das Bewerbungsfoto: Verhältnis 3:2 
 
 
