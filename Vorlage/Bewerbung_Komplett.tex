@@ -1,6 +1,7 @@
-\documentclass[12pt,a4paper]{book}
+\documentclass[12pt,a4paper,oneside]{book}
 % Requires Ghostscript	currfile		
 \usepackage{verbatim,currfile}
+\usepackage[utf8]{inputenc}     
 
 \input{../Bsp-Latex/BewerberInfos.tex}
 
@@ -11,13 +12,16 @@
 
 %%%%%%%%%% Anschreiben %%%%%%%%%% 
 \begin{filecontents}{anschreibenGen.tex}
-\documentclass[DINmtext]{scrlttr2}
+\documentclass[DINmtext,draft=false]{scrlttr2}
 \usepackage[utf8x]{inputenc}
+\usepackage{layouts,etoolbox}
 \usepackage{Vorlage_Anschreiben}
 \input{../Bsp-Latex/BewerberInfos.tex}
 \farbe{blue}
 \begin{document}
-\input{../Bsp-Latex/Inhalt-Anschreiben.tex}%<<<<<<<<<<<<<<<<<<<<<<<<<
+%>>>>>>>>>>>>>>>>>>>>>>>>> 
+\input{../Bsp-Latex/Inhalt-Anschreiben.tex}
+% <<<<<<<<<<<<<<<<<<<<<<<<<
 \end{document}
 \end{filecontents}
 \immediate\write18{pdflatex  -output-directory=\buildDir\ anschreibenGen.tex}
@@ -67,6 +71,7 @@
 \anschreibenImport
 \cvImport
 \input{../Bsp-Latex/Inhalt-Anlagen.tex}
+
 \end{document}
 
 

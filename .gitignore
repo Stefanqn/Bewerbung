@@ -36,13 +36,8 @@ Priv-Bin/
 Priv-Fertige/
 Spielwiese/
 build/
-Vorlage/cv.pdf
-Vorlage/anschreiben.pdf
-Vorlage/Bewerbung_Einzeln.pdf
-Vorlage/Bewerbung_Komplett.pdf
-Vorlage/anschreibenGen.pdf
+Vorlage/*.pdf
 Vorlage/anschreibenGen.tex
-Vorlage/cvGen.pdf
 Vorlage/cvGen.tex
 tmp/
 Priv-Latex-Static
