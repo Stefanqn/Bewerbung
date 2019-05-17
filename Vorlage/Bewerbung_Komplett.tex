@@ -3,7 +3,7 @@
 \usepackage{verbatim,currfile}
 \usepackage[utf8]{inputenc}     
 
-\input{../Bsp-Latex/BewerberInfos.tex}
+\input{meta.tex}
 
 \usepackage{Vorlage_Bewerbung}
 % !!! Requires shell-escape !!!
@@ -16,12 +16,11 @@
 \usepackage[utf8x]{inputenc}
 \usepackage{layouts,etoolbox}
 \usepackage{Vorlage_Anschreiben}
-\input{../Bsp-Latex/BewerberInfos.tex}
+\input{meta.tex}
+\input{\bewerberInfos}
 \farbe{blue}
 \begin{document}
-%>>>>>>>>>>>>>>>>>>>>>>>>> 
-\input{../Bsp-Latex/Inhalt-Anschreiben.tex}
-% <<<<<<<<<<<<<<<<<<<<<<<<<
+\input{\anschreibenRef}
 \end{document}
 \end{filecontents}
 \immediate\write18{pdflatex  -output-directory=\buildDir\ anschreibenGen.tex}
@@ -33,16 +32,16 @@
 \usepackage[breit]{Vorlage_Lebenslauf}
 \usepackage[utf8x]{inputenc}
 \PrerenderUnicode{ßÄäÜüÖö}
-\input{../Bsp-Latex/BewerberInfos.tex}
+\input{meta.tex}
+\input{\bewerberInfos}
 \moderncvcolor{blue} 
 \begin{document}
-\input{../Bsp-Latex/Inhalt-CV.tex}
+\input{\cvRef}
 \end{document}
 \end{filecontents}
 \immediate\write18{pdflatex  -output-directory=\buildDir\ cvGen.tex}
 % Compilieren trotz z.B. marvosym Fehler: '--interaction scrollmode' anfügen
-%
-%
+
 %%%%%%%%%% Include Cmds %%%%%%%%%% 
 \newcommand\anschreibenImport{%
 \IfFileExists{\buildDir anschreibenGen.pdf}{
@@ -70,7 +69,7 @@
 \begin{document}
 \anschreibenImport
 \cvImport
-\input{../Bsp-Latex/Inhalt-Anlagen.tex}
+\input{\anlagenRef}
 
 \end{document}
 
