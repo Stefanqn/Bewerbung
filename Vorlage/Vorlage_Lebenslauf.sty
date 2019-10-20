@@ -79,7 +79,7 @@
 \photo[\fotoHoehe][\fotoRahmen]{\foto}
 
 \newcommand \unterschriftLL{\begin{minipage}{15cm}%
-	\wohnort , \today
+	\unterschriftsOrt , \today
 	\\\sig%
 \end{minipage}}
 
@@ -236,8 +236,11 @@
 
 % ohne datumskorrektur
 \newcommand \eintragK [2]{%
-	\cvitem[0.15em]{#1}{#2}
-}
+\begin{tabu}{@{} p{\hintscolumnwidth} @{\hspace{\separatorcolumnwidth}} p{\maincolumnwidth} @{}}{
+\raggedleft\hintstyle{#1} &{#2}
+}%
+\end{tabu}%
+\par}
 
 \newcommand* \eintragKK [4][.25em]{%
 \begin{tabu}{@{} p{\hintscolumnwidth} @{\hspace{\separatorcolumnwidth}} p{\maincolumnwidth} @{}}{
@@ -272,7 +275,7 @@
   \par\addvspace{\eintragsAbstand}}
 
 
-\newcommand* \eintragExtraZeile[1]{\\ & \vspace{-5mm}{\begin{minipage}[t]{\linewidth}#1\end{minipage}}}
+\newcommand* \eintragExtraZeile[1]{\\ & \vspace{-5mm}{\begin{minipage}[t]{\linewidth}\begin{flushleft}#1\end{flushleft}\end{minipage}}}
 
 
 

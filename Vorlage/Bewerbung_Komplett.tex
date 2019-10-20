@@ -17,6 +17,7 @@
 \usepackage{layouts,etoolbox}
 \usepackage{Vorlage_Anschreiben}
 \input{meta.tex}
+
 \input{\bewerberInfos}
 \farbe{blue}
 \begin{document}
@@ -24,6 +25,7 @@
 \end{document}
 \end{filecontents}
 \immediate\write18{pdflatex  -output-directory=\buildDir\ anschreibenGen.tex}
+
 
 %%%%%%%%%% CV %%%%%%%%%% 
 \begin{filecontents}{cvGen.tex}
@@ -70,7 +72,6 @@
 \anschreibenImport
 \cvImport
 \input{\anlagenRef}
-
 \end{document}
 
 

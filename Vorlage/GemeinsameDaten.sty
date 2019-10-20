@@ -26,6 +26,7 @@
 \newcommand*  \fotoRahmen {1pt}
 \newcommand* \meinName {\vorname \ \nachname}
 \newcommand* \addresse {\strasse\\\PLZ \ \wohnort}
+\newcommand* \unterschriftsOrt {\wohnort} 
 
 % ============ Config ============
 \AtEndPreamble{
@@ -69,8 +70,9 @@
 \def \meineFestnetzNr #1{\renewcommand* \festnetzNr {#1}}
 \def \meineFaxNr #1{\renewcommand* \faxNr {#1}}
 \def \meineEmail #1{\renewcommand* \myEmail {\href{mailto:#1}{#1}}}
-\def \unterschrift[#1][#2]#3 {\renewcommand \sig {\iftoggle{haendischeUnterschrift}{}{\hspace*{7mm}\includegraphics[scale=#1]{#3}} {#2 \scriptsize \titulierung \vorname \ \nachname}}}
+\def \unterschrift[#1][#2]#3 {\renewcommand \sig {\iftoggle{haendischeUnterschrift}{\vspace{1.5\baselineskip}}{\includegraphics[scale=#1]{#3}} {#2 \scriptsize \titulierung \vorname \ \nachname}}}
 \def \foto[#1][#2]#3 {\renewcommand* \foto {#3} \renewcommand* \fotoHoehe {#1} \renewcommand* \fotoRahmen {#2}}
+\def \meinUnterschriftsOrt #1{\renewcommand* \unterschriftsOrt {#1}}
 
 %\newcommand* xxxxxxx {}  
 %\def xxxxxxx #1{\renewcommand* xxxxxxx {#1}}
