@@ -9,19 +9,19 @@ Latex Bewerbungsvorlage konform zu DIN5008. Siehe [PDF Beispiel](https://github.
 
 Vorlage
 --------
-```meta.tex``` Referenzen zum Anschreiben, Lebenslauf, etc ...
+* ```meta.tex``` Referenzen zum Anschreiben, Lebenslauf, etc ...
 
-```anschreiben.tex``` Anschreiben einzeln. 
-```cv.tex``` Lebenslauf einzeln.
-```Bewerbung_Einzeln.tex``` Anschreiben und CV müssen vorher erzeugt werden.  
-```Bewerbung_Komplett.tex``` Alles in einem Rutsch, benötigt shell-escape. Siehe Kommentar.  
+* ```anschreiben.tex``` Anschreiben einzeln. 
+* ```cv.tex``` Lebenslauf einzeln.
+* ```Bewerbung_Einzeln.tex``` Anschreiben und CV müssen vorher erzeugt werden.  
+* ```Bewerbung_Komplett.tex``` Alles in einem Rutsch, benötigt shell-escape. Siehe Kommentar.  
 
 Bsp-Latex
 ----------
-```BewerberInfos.tex``` Max Mustermanns persönliche Daten, Verweise zu Unterschrift, Foto, sowie der Pfad des build Verzeichnisses 
-```Inhalt-Anlagen.tex``` Beispiel Anlagen  
-```Inhalt-Anschreiben.tex``` Beispiel Anschreiben  
-```Inhalt-CV.tex``` Beispiel Lebenslauf  
+* ```BewerberInfos.tex``` Max Mustermanns persönliche Daten, Verweise zu Unterschrift, Foto, sowie der Pfad des build Verzeichnisses 
+* ```Inhalt-Anlagen.tex``` Beispiel Anlagen  
+* ```Inhalt-Anschreiben.tex``` Beispiel Anschreiben  
+* ```Inhalt-CV.tex``` Beispiel Lebenslauf  
 
 Limitierungen
 -----
