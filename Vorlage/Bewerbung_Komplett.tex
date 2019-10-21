@@ -8,6 +8,7 @@
 \usepackage{Vorlage_Bewerbung}
 % !!! Requires shell-escape !!!
 % http://tex.stackexchange.com/questions/37489/how-can-i-enable-write-18-on-a-miktex-installation
+% just add -shell-escape to pdflatex
 \RequirePackage{filecontents}
 
 %%%%%%%%%% Anschreiben %%%%%%%%%% 
@@ -24,7 +25,7 @@
 \input{\anschreibenRef}
 \end{document}
 \end{filecontents}
-\immediate\write18{pdflatex  -output-directory=\buildDir\ anschreibenGen.tex}
+\immediate\write18{pdflatex -output-directory="\buildDir" anschreibenGen.tex}
 
 
 %%%%%%%%%% CV %%%%%%%%%% 
@@ -41,7 +42,7 @@
 \input{\cvRef}
 \end{document}
 \end{filecontents}
-\immediate\write18{pdflatex  -output-directory=\buildDir\ cvGen.tex}
+\immediate\write18{pdflatex  -output-directory="\buildDir" cvGen.tex}
 % Compilieren trotz z.B. marvosym Fehler: '--interaction scrollmode' anfügen
 
 %%%%%%%%%% Include Cmds %%%%%%%%%% 
