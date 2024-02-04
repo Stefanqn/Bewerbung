@@ -12,5 +12,9 @@ tlmgr update --self &&
 tlmgr install babel-german &&
 tlmgr install opensans &&
 mkdir -p build &&
-pdflatex  --output-directory=build/  ./Bewerbung_Komplett.tex 
+pdflatex  --output-directory=build/ anschreiben.tex &&
+pdflatex  --output-directory=build/ cv.tex &&
+pdflatex  --output-directory=build/ anhang.tex &&
+pdflatex  --output-directory=build/ Bewerbung_Einzeln.tex &&
+pdflatex  --output-directory=build/ --shell-escape ./Bewerbung_Komplett.tex 
 '
