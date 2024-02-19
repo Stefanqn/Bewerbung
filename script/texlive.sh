@@ -40,6 +40,10 @@ git clean -f -d -X
 # tlmgr install --usermode eso-pic
 # tlmgr install --usermode pdfpages
 # tlmgr install --usermode pdflscape
+# tlmgr install --usermode currfile
+# tlmgr install --usermode filehook
+# tlmgr install --usermode filecontents
+
 
 tlmgr install --usermode pdfpages
 
