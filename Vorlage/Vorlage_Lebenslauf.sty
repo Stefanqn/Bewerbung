@@ -236,11 +236,8 @@
 
 % ohne datumskorrektur
 \newcommand \eintragK [2]{%
-\begin{tabu}{@{} p{\hintscolumnwidth} @{\hspace{\separatorcolumnwidth}} p{\maincolumnwidth} @{}}{
-\raggedleft\hintstyle{#1} &{#2}
-}%
-\end{tabu}%
-\par}
+	\cvitem[0.15em]{#1}{#2}
+}
 
 \newcommand* \eintragKK [4][.25em]{%
 \begin{tabu}{@{} p{\hintscolumnwidth} @{\hspace{\separatorcolumnwidth}} p{\maincolumnwidth} @{}}{
